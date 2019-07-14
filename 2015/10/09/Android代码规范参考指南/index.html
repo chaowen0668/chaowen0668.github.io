@@ -1,0 +1,1143 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/selfimgrhexo/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="android," />
+
+
+
+  <link rel="alternate" href="/selfimgrhexo/atom.xml" title="Android难民" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="代码规范对于一个软件项目来说非常重要，当然Android项目也不例外，一个优秀的Android项目不仅需要严谨的业务逻辑和架构设计，更需要一套统一优雅的代码规范标准，才可以让整个项目团队更加高效。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android代码规范参考指南">
+<meta property="og:url" content="http://chaowen.coding.me/selfimgrhexo/2015/10/09/Android代码规范参考指南/index.html">
+<meta property="og:site_name" content="Android难民">
+<meta property="og:description" content="代码规范对于一个软件项目来说非常重要，当然Android项目也不例外，一个优秀的Android项目不仅需要严谨的业务逻辑和架构设计，更需要一套统一优雅的代码规范标准，才可以让整个项目团队更加高效。">
+<meta property="og:updated_time" content="2015-12-29T16:17:00.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android代码规范参考指南">
+<meta name="twitter:description" content="代码规范对于一个软件项目来说非常重要，当然Android项目也不例外，一个优秀的Android项目不仅需要严谨的业务逻辑和架构设计，更需要一套统一优雅的代码规范标准，才可以让整个项目团队更加高效。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always'
+  };
+</script>
+
+  <title> Android代码规范参考指南 | Android难民 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/selfimgrhexo/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Android难民</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Android代码规范参考指南
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-09T09:39:45+08:00" content="2015-10-09">
+            2015-10-09
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/selfimgrhexo/categories/android/" itemprop="url" rel="index">
+                  <span itemprop="name">android</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/selfimgrhexo/2015/10/09/Android代码规范参考指南/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Android代码规范参考指南/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>代码规范对于一个软件项目来说非常重要，当然Android项目也不例外，一个优秀的Android项目不仅需要严谨的业务逻辑和架构设计，更需要一套统一优雅的代码规范标准，才可以让整个项目团队更加高效。<br><a id="more"></a></p>
+<h1 id="u5305_u547D_u540D_u89C4_u8303"><a href="#u5305_u547D_u540D_u89C4_u8303" class="headerlink" title="包命名规范"></a>包命名规范</h1><p>包（packages）：采用反域名命名规则，全部使用小写字母。一级包名为com，二级包名为xxx（可以是公司域名或者个人命名），三级包名根据应用进行命名，四级包名为模块名或层级名。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">包名</th>
+<th style="text-align:center">说明         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.activities</td>
+<td style="text-align:center">页面用到的Activity类（activities层级用户界面）</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.fragment</td>
+<td style="text-align:center">页面用到的Fragment类</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.base</td>
+<td style="text-align:center">页面中每个Activity类共享的可以写成一个BaseActivity类（基础共享的类）</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.adapter</td>
+<td style="text-align:center">页面用到的Adapter类（适配器的类）</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.utils</td>
+<td style="text-align:center">此包中包含：公共工具方法类（包含日期、网络、存储、日志等工具类）</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.bean（model/domain均可，个人喜好）</td>
+<td style="text-align:center">实体类</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.db</td>
+<td style="text-align:center">数据库操作</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.view（或者.ui）</td>
+<td style="text-align:center">自定义的View类等</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.service</td>
+<td style="text-align:center">Service服务</td>
+</tr>
+<tr>
+<td style="text-align:center">com.xxx.应用名称缩写.broadcast</td>
+<td style="text-align:center">Broadcast服务</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u7C7B_u547D_u540D_u89C4_u8303"><a href="#u7C7B_u547D_u540D_u89C4_u8303" class="headerlink" title="类命名规范"></a>类命名规范</h1><p>类（classes）：名词，采用大驼峰命名法，尽量避免缩写，除非该缩写是众所周知的，比如HTML，URL,如果类名称包含单词缩写，则单词缩写的每个字母均应大写。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">例如</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Application类</td>
+<td style="text-align:center">Application为后缀标识</td>
+<td style="text-align:center">XXXApplication</td>
+</tr>
+<tr>
+<td style="text-align:center">Activity类</td>
+<td style="text-align:center">Activity为后缀标识</td>
+<td style="text-align:center">闪屏页面类SplashActivity</td>
+</tr>
+<tr>
+<td style="text-align:center">解析类</td>
+<td style="text-align:center">Handler为后缀标识</td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">公共方法类</td>
+<td style="text-align:center">Utils或Manager为后缀标识</td>
+<td style="text-align:center">线程池管理类：ThreadPoolManager,日志工具类：LogUtils</td>
+</tr>
+<tr>
+<td style="text-align:center">数据库类</td>
+<td style="text-align:center">以DBHelper后缀标识</td>
+<td style="text-align:center">MySQLiteDBHelper</td>
+</tr>
+<tr>
+<td style="text-align:center">Service类</td>
+<td style="text-align:center">以Service为后缀标识</td>
+<td style="text-align:center">播放服务：PlayService</td>
+</tr>
+<tr>
+<td style="text-align:center">BroadcastReceiver类</td>
+<td style="text-align:center">以Broadcast为后缀标识</td>
+<td style="text-align:center">时间通知：TimeBroadcast</td>
+</tr>
+<tr>
+<td style="text-align:center">ContentProvider类</td>
+<td style="text-align:center">以Provider为后缀标识</td>
+<td style="text-align:center">单词内容提供者：DictProvider</td>
+</tr>
+<tr>
+<td style="text-align:center">直接写的共享基础类</td>
+<td style="text-align:center">以Base为前缀</td>
+<td style="text-align:center">BaseActivity,BaseFragment</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u53D8_u91CF_u547D_u540D_u89C4_u8303"><a href="#u53D8_u91CF_u547D_u540D_u89C4_u8303" class="headerlink" title="变量命名规范"></a>变量命名规范</h1><p>变量（variables）采用小驼峰命名法。类中控件名称必须与xml布局id保持一致。</p>
+<p>公开的常量：定义为静态final，名称全部大写。eg: public staticfinal String ACTION_MAIN=”android.intent.action.MAIN”;</p>
+<p>静态变量：名称以s开头 eg：private static long sInstanceCount = 0;</p>
+<p>非静态的私有变量、protected的变量：以m开头，eg：private Intent mItent;</p>
+<h1 id="u63A5_u53E3_u547D_u540D_u89C4_u8303"><a href="#u63A5_u53E3_u547D_u540D_u89C4_u8303" class="headerlink" title="接口命名规范"></a>接口命名规范</h1><p>接口（interface）：命名规则与类一样采用大驼峰命名法，多以able或ible结尾，eg：interface Runable; interface Accessible;</p>
+<h1 id="u65B9_u6CD5_u547D_u540D_u89C4_u8303"><a href="#u65B9_u6CD5_u547D_u540D_u89C4_u8303" class="headerlink" title="方法命名规范"></a>方法命名规范</h1><p>方法（methods）：动词或动名词，采用小驼峰命名法，eg：onCreate(),run();</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">initXX()</td>
+<td style="text-align:center">初始化相关方法，使用init为前缀标识，如初始化布局initView()</td>
+</tr>
+<tr>
+<td style="text-align:center">isXX() checkXX()</td>
+<td style="text-align:center">方法返回值为boolean型的请使用is或check为前缀标识</td>
+</tr>
+<tr>
+<td style="text-align:center">getXX()</td>
+<td style="text-align:center">返回某个值的方法，使用get为前缀标识</td>
+</tr>
+<tr>
+<td style="text-align:center">processXX()</td>
+<td style="text-align:center">对数据进行处理的方法，尽量使用process为前缀标识</td>
+</tr>
+<tr>
+<td style="text-align:center">displayXX()</td>
+<td style="text-align:center">弹出提示框和提示信息，使用display为前缀标识</td>
+</tr>
+<tr>
+<td style="text-align:center">saveXX()</td>
+<td style="text-align:center">与保存数据相关的，使用save为前缀标识</td>
+</tr>
+<tr>
+<td style="text-align:center">resetXX()</td>
+<td style="text-align:center">对数据重组的，使用reset前缀标识</td>
+</tr>
+<tr>
+<td style="text-align:center">clearXX()</td>
+<td style="text-align:center">清除数据相关的</td>
+</tr>
+<tr>
+<td style="text-align:center">removeXX()</td>
+<td style="text-align:center">清除数据相关的</td>
+</tr>
+<tr>
+<td style="text-align:center">drawXXX()</td>
+<td style="text-align:center">绘制数据或效果相关的，使用draw前缀标识</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u5E03_u5C40_u6587_u4EF6_u547D_u540D_u89C4_u8303"><a href="#u5E03_u5C40_u6587_u4EF6_u547D_u540D_u89C4_u8303" class="headerlink" title="布局文件命名规范"></a>布局文件命名规范</h1><p>全部小写，采用下划线命名法</p>
+<h2 id="contentview"><a href="#contentview" class="headerlink" title="contentview"></a>contentview</h2><p>contentview命名, Activity默认布局，以去掉后缀的Activity类进行命名。不加后缀：<br>功能模块.xml<br>eg：main.xml、more.xml、settings.xml</p>
+<p>或者：activity_功能模块.xml<br>eg：activity_main.xml、activity_more.xml</p>
+<h2 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a>Dialog</h2><p>Dialog命名：dialog_描述.xml<br>eg：dlg_hint.xml</p>
+<h2 id="PopupWindow"><a href="#PopupWindow" class="headerlink" title="PopupWindow"></a>PopupWindow</h2><p>PopupWindow命名：ppw_描述.xml<br>eg：ppw_info.xml</p>
+<h2 id="u5217_u8868_u9879"><a href="#u5217_u8868_u9879" class="headerlink" title="列表项"></a>列表项</h2><p>列表项命名listitem_描述.xml<br>eg：listitem_city.xml</p>
+<h2 id="u5305_u542B_u9879"><a href="#u5305_u542B_u9879" class="headerlink" title="包含项"></a>包含项</h2><p>包含项：include_模块.xml<br>eg：include_head.xml、include_bottom.xml</p>
+<h2 id="adapter_u7684_u5B50_u5E03_u5C40"><a href="#adapter_u7684_u5B50_u5E03_u5C40" class="headerlink" title="adapter的子布局"></a>adapter的子布局</h2><p>adapter的子布局：功能模块_item.xml<br>eg：main_item.xml、</p>
+<h1 id="u8D44_u6E90id_u547D_u540D_u89C4_u8303"><a href="#u8D44_u6E90id_u547D_u540D_u89C4_u8303" class="headerlink" title="资源id命名规范"></a>资源id命名规范</h1><p>命名模式为：view缩写_模块名称_view的逻辑名称</p>
+<p>view的缩写详情如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">控件</th>
+<th style="text-align:center">缩写                      </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">LayoutView</td>
+<td style="text-align:center">lv</td>
+</tr>
+<tr>
+<td style="text-align:center">RelativeView</td>
+<td style="text-align:center">rv</td>
+</tr>
+<tr>
+<td style="text-align:center">TextView</td>
+<td style="text-align:center">tv</td>
+</tr>
+<tr>
+<td style="text-align:center">Button</td>
+<td style="text-align:center">btn</td>
+</tr>
+<tr>
+<td style="text-align:center">ImageButton</td>
+<td style="text-align:center">imgBtn</td>
+</tr>
+<tr>
+<td style="text-align:center">ImageView</td>
+<td style="text-align:center">iv</td>
+</tr>
+<tr>
+<td style="text-align:center">CheckBox</td>
+<td style="text-align:center">cb</td>
+</tr>
+<tr>
+<td style="text-align:center">RadioButton</td>
+<td style="text-align:center">rb</td>
+</tr>
+<tr>
+<td style="text-align:center">analogClock</td>
+<td style="text-align:center">anaClk</td>
+</tr>
+<tr>
+<td style="text-align:center">DigtalClock</td>
+<td style="text-align:center">dgtClk</td>
+</tr>
+<tr>
+<td style="text-align:center">DatePicker</td>
+<td style="text-align:center">dtPk</td>
+</tr>
+<tr>
+<td style="text-align:center">EditText</td>
+<td style="text-align:center">edtTxt</td>
+</tr>
+<tr>
+<td style="text-align:center">TimePicker</td>
+<td style="text-align:center">tmPk</td>
+</tr>
+<tr>
+<td style="text-align:center">toggleButton</td>
+<td style="text-align:center">tglBtn</td>
+</tr>
+<tr>
+<td style="text-align:center">ProgressBar</td>
+<td style="text-align:center">proBar</td>
+</tr>
+<tr>
+<td style="text-align:center">SeekBar</td>
+<td style="text-align:center">skBar</td>
+</tr>
+<tr>
+<td style="text-align:center">AutoCompleteTextView</td>
+<td style="text-align:center">autoTxt</td>
+</tr>
+<tr>
+<td style="text-align:center">ZoomControls</td>
+<td style="text-align:center">zmCtl</td>
+</tr>
+<tr>
+<td style="text-align:center">VideoView</td>
+<td style="text-align:center">vdoVi</td>
+</tr>
+<tr>
+<td style="text-align:center">WdbView</td>
+<td style="text-align:center">webVi</td>
+</tr>
+<tr>
+<td style="text-align:center">RantingBar</td>
+<td style="text-align:center">ratBar</td>
+</tr>
+<tr>
+<td style="text-align:center">Tab</td>
+<td style="text-align:center">tab</td>
+</tr>
+<tr>
+<td style="text-align:center">Spinner</td>
+<td style="text-align:center">spn</td>
+</tr>
+<tr>
+<td style="text-align:center">Chronometer</td>
+<td style="text-align:center">cmt</td>
+</tr>
+<tr>
+<td style="text-align:center">ScollView</td>
+<td style="text-align:center">sclVi</td>
+</tr>
+<tr>
+<td style="text-align:center">TextSwitch</td>
+<td style="text-align:center">txtSwt</td>
+</tr>
+<tr>
+<td style="text-align:center">ImageSwitch</td>
+<td style="text-align:center">imgSwt</td>
+</tr>
+<tr>
+<td style="text-align:center">listView</td>
+<td style="text-align:center">lVi 或则lv</td>
+</tr>
+<tr>
+<td style="text-align:center">ExpandableList</td>
+<td style="text-align:center">epdLt</td>
+</tr>
+<tr>
+<td style="text-align:center">MapView</td>
+<td style="text-align:center">mapVi</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u52A8_u753B_u6587_u4EF6_u547D_u540D"><a href="#u52A8_u753B_u6587_u4EF6_u547D_u540D" class="headerlink" title="动画文件命名"></a>动画文件命名</h1><p>动画文件（anim文件夹下）：全部小写，采用下划线命名法，加前缀区分。</p>
+<p>前面为动画的类型，后面为方向</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动画命名例子</th>
+<th style="text-align:center">规范写法                    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">fade_in</td>
+<td style="text-align:center">淡入</td>
+</tr>
+<tr>
+<td style="text-align:center">fade_out</td>
+<td style="text-align:center">淡出</td>
+</tr>
+<tr>
+<td style="text-align:center">push_down_in</td>
+<td style="text-align:center">从下方推入</td>
+</tr>
+<tr>
+<td style="text-align:center">push_down_out</td>
+<td style="text-align:center">从下方推出</td>
+</tr>
+<tr>
+<td style="text-align:center">push_left</td>
+<td style="text-align:center">推像左方</td>
+</tr>
+<tr>
+<td style="text-align:center">slide_in_from_top</td>
+<td style="text-align:center">从头部滑动进入</td>
+</tr>
+<tr>
+<td style="text-align:center">zoom_enter</td>
+<td style="text-align:center">变形进入</td>
+</tr>
+<tr>
+<td style="text-align:center">slide_in</td>
+<td style="text-align:center">滑动进入</td>
+</tr>
+<tr>
+<td style="text-align:center">shrink_to_middle</td>
+<td style="text-align:center">中间缩小</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u56FE_u7247_u8D44_u6E90_u6587_u4EF6_u547D_u540D"><a href="#u56FE_u7247_u8D44_u6E90_u6587_u4EF6_u547D_u540D" class="headerlink" title="图片资源文件命名"></a>图片资源文件命名</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">命名</th>
+<th style="text-align:center">说明                    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bg_xxx</td>
+<td style="text-align:center">这种图片一般那些比较大的图片，比如作为某个Activity的背景等</td>
+</tr>
+<tr>
+<td style="text-align:center">btn_xxx</td>
+<td style="text-align:center">按钮，一般用于按钮，而且这种按钮没有其他状态</td>
+</tr>
+<tr>
+<td style="text-align:center">ic_xxx</td>
+<td style="text-align:center">图标，一般用于单个图标，比如启动图片ic_launcher</td>
+</tr>
+<tr>
+<td style="text-align:center">bg描述状态1[_状态2]</td>
+<td style="text-align:center">用于控件上的不同状态</td>
+</tr>
+<tr>
+<td style="text-align:center">btn描述状态1[_状态2]</td>
+<td style="text-align:center">用于按钮上的不同状态</td>
+</tr>
+<tr>
+<td style="text-align:center">chx描述状态1[_状态2]</td>
+<td style="text-align:center">选择框，一般有2态和4态</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u4E00_u4E9B_u5E38_u89C1_u7684_u5355_u8BCD_u7F29_u5199"><a href="#u4E00_u4E9B_u5E38_u89C1_u7684_u5355_u8BCD_u7F29_u5199" class="headerlink" title="一些常见的单词缩写"></a>一些常见的单词缩写</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">缩写                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">icon</td>
+<td style="text-align:center">ic （主要用在app的图标）</td>
+</tr>
+<tr>
+<td style="text-align:center">color</td>
+<td style="text-align:center">cl（主要用于颜色值）</td>
+</tr>
+<tr>
+<td style="text-align:center">divider</td>
+<td style="text-align:center">di（主要用于分隔线，不仅包括Listview中的divider，还包括普通布局中的线）</td>
+</tr>
+<tr>
+<td style="text-align:center">selector</td>
+<td style="text-align:center">sl（主要用于某一view多种状态，不仅包括Listview中的selector，还包括按钮的selector）</td>
+</tr>
+<tr>
+<td style="text-align:center">average</td>
+<td style="text-align:center">avg</td>
+</tr>
+<tr>
+<td style="text-align:center">background</td>
+<td style="text-align:center">Bg（主要用于布局和子布局的背景）</td>
+</tr>
+<tr>
+<td style="text-align:center">buffer</td>
+<td style="text-align:center">buf</td>
+</tr>
+<tr>
+<td style="text-align:center">control</td>
+<td style="text-align:center">ctrl</td>
+</tr>
+<tr>
+<td style="text-align:center">delete</td>
+<td style="text-align:center">del</td>
+</tr>
+<tr>
+<td style="text-align:center">document</td>
+<td style="text-align:center">doc</td>
+</tr>
+<tr>
+<td style="text-align:center">error</td>
+<td style="text-align:center">err</td>
+</tr>
+<tr>
+<td style="text-align:center">escape</td>
+<td style="text-align:center">esc</td>
+</tr>
+<tr>
+<td style="text-align:center">increment</td>
+<td style="text-align:center">inc</td>
+</tr>
+<tr>
+<td style="text-align:center">infomation</td>
+<td style="text-align:center">info</td>
+</tr>
+<tr>
+<td style="text-align:center">initial</td>
+<td style="text-align:center">init</td>
+</tr>
+<tr>
+<td style="text-align:center">image</td>
+<td style="text-align:center">img</td>
+</tr>
+<tr>
+<td style="text-align:center">Internationalization</td>
+<td style="text-align:center">I18N</td>
+</tr>
+<tr>
+<td style="text-align:center">length</td>
+<td style="text-align:center">len</td>
+</tr>
+<tr>
+<td style="text-align:center">library</td>
+<td style="text-align:center">lib</td>
+</tr>
+<tr>
+<td style="text-align:center">message</td>
+<td style="text-align:center">msg</td>
+</tr>
+<tr>
+<td style="text-align:center">password</td>
+<td style="text-align:center">pwd</td>
+</tr>
+<tr>
+<td style="text-align:center">position</td>
+<td style="text-align:center">pos</td>
+</tr>
+<tr>
+<td style="text-align:center">server</td>
+<td style="text-align:center">srv</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">str</td>
+</tr>
+<tr>
+<td style="text-align:center">temp</td>
+<td style="text-align:center">tmp</td>
+</tr>
+<tr>
+<td style="text-align:center">window</td>
+<td style="text-align:center">wnd(win)</td>
+</tr>
+</tbody>
+</table>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/selfimgrhexo/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/10/11/Material-design开发教程/" rel="prev">Material design开发教程</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/10/04/swift开发库/" rel="next">swift开发库</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/10/09/Android代码规范参考指南/"
+                   data-title="Android代码规范参考指南" data-url="http://chaowen.coding.me/selfimgrhexo/2015/10/09/Android代码规范参考指南/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7fvi21.com1.z0.glb.clouddn.com/avatar.jpg" alt="selfimpr" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">selfimpr</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/selfimgrhexo/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5305_u547D_u540D_u89C4_u8303"><span class="nav-number">1.</span> <span class="nav-text">包命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7C7B_u547D_u540D_u89C4_u8303"><span class="nav-number">2.</span> <span class="nav-text">类命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u53D8_u91CF_u547D_u540D_u89C4_u8303"><span class="nav-number">3.</span> <span class="nav-text">变量命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u63A5_u53E3_u547D_u540D_u89C4_u8303"><span class="nav-number">4.</span> <span class="nav-text">接口命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u65B9_u6CD5_u547D_u540D_u89C4_u8303"><span class="nav-number">5.</span> <span class="nav-text">方法命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5E03_u5C40_u6587_u4EF6_u547D_u540D_u89C4_u8303"><span class="nav-number">6.</span> <span class="nav-text">布局文件命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#contentview"><span class="nav-number">6.1.</span> <span class="nav-text">contentview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dialog"><span class="nav-number">6.2.</span> <span class="nav-text">Dialog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PopupWindow"><span class="nav-number">6.3.</span> <span class="nav-text">PopupWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5217_u8868_u9879"><span class="nav-number">6.4.</span> <span class="nav-text">列表项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5305_u542B_u9879"><span class="nav-number">6.5.</span> <span class="nav-text">包含项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adapter_u7684_u5B50_u5E03_u5C40"><span class="nav-number">6.6.</span> <span class="nav-text">adapter的子布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8D44_u6E90id_u547D_u540D_u89C4_u8303"><span class="nav-number">7.</span> <span class="nav-text">资源id命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u52A8_u753B_u6587_u4EF6_u547D_u540D"><span class="nav-number">8.</span> <span class="nav-text">动画文件命名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u56FE_u7247_u8D44_u6E90_u6587_u4EF6_u547D_u540D"><span class="nav-number">9.</span> <span class="nav-text">图片资源文件命名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E00_u4E9B_u5E38_u89C1_u7684_u5355_u8BCD_u7F29_u5199"><span class="nav-number">10.</span> <span class="nav-text">一些常见的单词缩写</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">selfimpr</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chaowen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/selfimgrhexo/js/ua-parser.min.js"></script>
+  	<script src="/selfimgrhexo/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/selfimgrhexo/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/selfimgrhexo/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/selfimgrhexo/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/selfimgrhexo/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

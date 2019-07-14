@@ -1,0 +1,677 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/selfimgrhexo/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/selfimgrhexo/atom.xml" title="Android难民" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="UI技巧 Material Design系列，自定义Behavior实现Android知乎首页Android 欢迎页精通 Android 中的 tools 命名空间Android开发：最详细的 Toolbar 开发实践总结&amp;amp;version=11020201&amp;amp;pass_ticket=JtFbOWzVz0QaHe5dN1epxdryv2HEDINGpaqXxeWcwGI%3D)Andr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android开发技巧">
+<meta property="og:url" content="http://chaowen.coding.me/selfimgrhexo/2015/09/08/Android开发技巧/index.html">
+<meta property="og:site_name" content="Android难民">
+<meta property="og:description" content="UI技巧 Material Design系列，自定义Behavior实现Android知乎首页Android 欢迎页精通 Android 中的 tools 命名空间Android开发：最详细的 Toolbar 开发实践总结&amp;amp;version=11020201&amp;amp;pass_ticket=JtFbOWzVz0QaHe5dN1epxdryv2HEDINGpaqXxeWcwGI%3D)Andr">
+<meta property="og:updated_time" content="2016-12-07T12:13:42.897Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android开发技巧">
+<meta name="twitter:description" content="UI技巧 Material Design系列，自定义Behavior实现Android知乎首页Android 欢迎页精通 Android 中的 tools 命名空间Android开发：最详细的 Toolbar 开发实践总结&amp;amp;version=11020201&amp;amp;pass_ticket=JtFbOWzVz0QaHe5dN1epxdryv2HEDINGpaqXxeWcwGI%3D)Andr">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always'
+  };
+</script>
+
+  <title> android开发技巧 | Android难民 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/selfimgrhexo/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Android难民</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              android开发技巧
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-08T13:06:26+08:00" content="2015-09-08">
+            2015-09-08
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/selfimgrhexo/categories/android/" itemprop="url" rel="index">
+                  <span itemprop="name">android</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/selfimgrhexo/2015/09/08/Android开发技巧/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/08/Android开发技巧/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="UI_u6280_u5DE7"><a href="#UI_u6280_u5DE7" class="headerlink" title="UI技巧"></a>UI技巧</h1><p><a href="http://blog.csdn.net/yanzhenjie1003/article/details/51946749" target="_blank" rel="external"> Material Design系列，自定义Behavior实现Android知乎首页</a><br><a href="http://www.jianshu.com/p/b08286b9e3f6" target="_blank" rel="external">Android 欢迎页</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA4MjU5NTY0NA==&amp;mid=2653418742&amp;idx=1&amp;sn=1efe7fa5c95cbf292b43ebba365813fc&amp;scene=1&amp;srcid=0518umesaM4ZrcRAYcNpFNZ7&amp;key=f5c31ae61525f82e66d0951fb781d5c0541e1aff25b7c19d52529090dc9aadd5135c16492d32df57a81580273d5ce6fc&amp;ascene=0&amp;uin=MTY5MDI4NDA4Mg%3D%3D&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.11.4+build%2815E65%29&amp;version=11020201&amp;pass_ticket=cxx8EkEgugUPRKu5OFT3LHt%2B24fap8mmX1w%2FJYuNro%2BB1zV9bzsrmnh%2F0sNY7HC1" target="_blank" rel="external">精通 Android 中的 tools 命名空间</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3MDE0NzYwNA==&amp;mid=2651433411&amp;idx=1&amp;sn=09751bd1733595d29f96d11b14358984&amp;scene=1&amp;srcid=0528Z8EY9FkU7lA9r0oN9jms&amp;key=f5c31ae61525f82e6b61d9dc1f3f267a1103de45e1900931a85757435d358c4a19c1f40823dbf2196b809489a37885a8&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.4+build(15E65" target="_blank" rel="external">Android开发：最详细的 Toolbar 开发实践总结</a>&amp;version=11020201&amp;pass_ticket=JtFbOWzVz0QaHe5dN1epxdryv2HEDINGpaqXxeWcwGI%3D)<br><a href="http://blog.csdn.net/guolin_blog/article/details/50727753" target="_blank" rel="external">Android drawable微技巧，你所不知道的drawable的那些细节</a><br><a href="https://github.com/Jacksgong/JKeyboardPanelSwitch" target="_blank" rel="external">Android键盘面板冲突 布局闪动处理方案</a><br><a href="http://email.mail.gank.io/c/eJwNjjsOwyAQRE9jSrSLlzUUFG5yjQjwD8XGsU2R42elkeZN9WYKlHPfsyrBADIQOCD0aLVBGpz23hFrO4IZrR07giOWXa-xfnQ51RYg4wATcbSIC2MagAy7NDhgRvRJHQGlyTi1h621b9ePnXlJ0n6uOj9T1XVuspdYf6W-vRGOdyt5n4WmuYnwEbIIjpFI3UFcTPKO5M916XwefyyRNf8" target="_blank" rel="external"> Android 透明状态栏实现方案</a><br><a href="http://www.race604.com/tint-drawable/" target="_blank" rel="external">Drawable 着色的后向兼容方案</a><br><a href="https://github.com/tianzhijiexian/Android-Best-Practices/blob/master/2015.9/ui/ui.md" target="_blank" rel="external">UI实时预览最佳实践</a><br><a href="http://andraskindler.com/blog/2015/tinting_drawables/?utm_source=androiddevdigest" target="_blank" rel="external">Tinting drawables</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1021/3607.html" target="_blank" rel="external">Android 高清加载巨图方案 拒绝压缩图片</a><br><a href="http://blog.csdn.net/jxxfzgy/article/details/46476903" target="_blank" rel="external">Android ToolBar 的简单封装</a><br><a href="http://blog.csdn.net/iispring/article/details/49770651" target="_blank" rel="external">Android中Canvas绘图基础详解</a><br><a href="http://blog.feng.moe/2015/10/24/something-about-cardview-development/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">关于使用 CardView 开发过程中要注意的细节</a><br><a href="http://www.jianshu.com/p/11210b14f743" target="_blank" rel="external">实践自定UI</a><br><a href="http://www.jianshu.com/p/ff8dcefce371" target="_blank" rel="external">实践自定义UI2</a><br><a href="http://yifeiyuan.me/2015/10/12/%E8%87%AA%E5%AE%9A%E4%B9%89View%E7%9A%84onMeasure%E3%80%81onLayout/" target="_blank" rel="external">自定义View的onMeasure、onLayout</a><br><a href="http://www.jianshu.com/p/dc3d04337d00" target="_blank" rel="external">Android快捷方式解密</a><br><a href="http://www.jianshu.com/p/80891d0185f7" target="_blank" rel="external">ViewPager不为人知的秘密</a><br><a href="http://zhuanlan.zhihu.com/zmywly8866/20260335" target="_blank" rel="external">Android Support Library 兼容库概念性介绍</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1120/3705.html" target="_blank" rel="external">RecyclerView添加Header的正确方式</a><br><a href="http://blog.csdn.net/bboyfeiyu/article/details/45869393#0-tsina-1-42567-397232819ff9a47a7b7e80a40613cfe1" target="_blank" rel="external">Android布局优化之ViewStub、include、merge使用与源码分析</a><br><a href="http://www.csdn.net/article/2015-09-08/2825645/1" target="_blank" rel="external">腾讯Bugly干货分享：Android机型适配之痛</a><br><a href="https://segmentfault.com/a/1190000003742057" target="_blank" rel="external">如何更新及替换ViewPager中的Fragment</a><br><a href="http://segmentfault.com/a/1190000004150350" target="_blank" rel="external">Android中WebView页面交互</a><br><a href="/selfimgrhexo/Android 软键盘和emoji表情切换方案，和微信几乎一样的体验">Android 软键盘和emoji表情切换方案，和微信几乎一样的体验</a><br><a href="http://my.oschina.net/Hideeee/blog/500933?fromerr=YG7GdWlK" target="_blank" rel="external">Android – 固定在ScrollView顶部的View，类似于新浪微博的评论列表的顶部</a><br><a href="http://leoray.leanote.com/post/viewgroup-custom" target="_blank" rel="external">自定义组件最详细实例讲解（7步实现自定义ViewGroup）</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0130/3927.html" target="_blank" rel="external">在滚动列表中实现视频的播放(ListView &amp; RecyclerView)</a><br><a href="http://t.cn/RbsSFw0" target="_blank" rel="external">Android开发中一些被冷落但却很有用的类和方法</a><br><a href="/">Android夜间模式最佳实践</a><br><a href="http://www.jianshu.com/p/79604c3ddcae" target="_blank" rel="external">Android开发：最详细的 Toolbar 开发实践总结</a><br><a href="http://blog.piasy.com/Robust-Android-Audio-encapsulation/" target="_blank" rel="external">这可能是目前最鲁棒的Android声音录制和播放封装库了</a><br><a href="http://www.jianshu.com/p/c8cbeb7ea43a" target="_blank" rel="external">Android NavigationDrawer 开发实践总结</a><br><a href="https://testerhome.com/topics/4304?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">Android 界面性能调优资料</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=404548816&amp;idx=1&amp;sn=f042037982ed2e74210c57edf864e31a&amp;scene=0&amp;key=710a5d99946419d952212e00d975092230dca20db96a430d17bf4528f8b81e3323355b8ec4c4336a06461c81e5d2c9c2&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.3+build(15D21" target="_blank" rel="external">Android APP 快速 Pad 化实现</a>&amp;version=11020201&amp;pass_ticket=mkxSG9yBAX1Owyn8FYzTXI641ZdTMCjVwh5JSkA24pE%3D)<br><a href="http://www.jianshu.com/p/60608820bb71" target="_blank" rel="external">夜晚的故事(android夜间模式实现)</a></p>
+<h2 id="u5173_u4E8ERadioButton_setCheck_u65B9_u6CD5_u7684_u95EE_u9898"><a href="#u5173_u4E8ERadioButton_setCheck_u65B9_u6CD5_u7684_u95EE_u9898" class="headerlink" title="关于RadioButton setCheck方法的问题"></a>关于RadioButton setCheck方法的问题</h2><p>在做项目过程中，使用radioButton来做菜单切换导航，发现在RadioButton在与其他按钮来回切换会背景不生效,可以使用以下代码<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rg.clearCheck<span class="comment">()</span>;<span class="comment">//清除选中状态的</span></span><br></pre></td></tr></table></figure></p>
+<p><a href="http://stackoverflow.com/questions/4035465/android-radiobutton-not-able-to-unset-using-setcheckedfalse-method" target="_blank" rel="external">参考来源</a></p>
+<h1 id="u4EE3_u7801_u4F18_u5316"><a href="#u4EE3_u7801_u4F18_u5316" class="headerlink" title="代码优化"></a>代码优化</h1><p><a href="http://blog.tingyun.com/web/article/detail/155" target="_blank" rel="external">Android客户端性能优化（魅族资深工程师毫无保留奉献）</a><br><a href="http://www.jianshu.com/p/d83b2caa5249" target="_blank" rel="external">谈Android模拟点击的价值和实现</a><br><a href="http://mafei.site/2015/11/22/BaseAdapter%E4%BD%BF%E7%94%A8%E4%B9%8B%E9%80%97%E6%AF%94%E5%BC%8F%E3%80%81%E6%99%AE%E9%80%9A%E5%BC%8F%E5%92%8C%E6%96%87%E8%89%BA%E5%BC%8F/" target="_blank" rel="external">BaseAdapter使用之逗比式、普通式和文艺式</a><br><a href="http://www.jianshu.com/p/63aafe3c12af" target="_blank" rel="external">关于 Android 进程保活，你所需要知道的一切</a><br><a href="http://www.rogerblog.cn/2016/05/19/Reducing-PNG-file-Size/" target="_blank" rel="external">如何减小 PNG 图片大小</a><br><a href="http://blog.csdn.net/aigestudio/article/details/51348408" target="_blank" rel="external">论Android应用进程长存的可行性</a><br><a href="http://android.jobbole.com/82952/" target="_blank" rel="external">安卓性能优化之被忽视的内存泄露</a><br><a href="http://kymjs.com/code/2016/05/08/01" target="_blank" rel="external">Android 热修复，没你想的那么难</a><br><a href="http://www.jianshu.com/p/411ab861034f" target="_blank" rel="external">RecyclerView.Adapter优化了吗？</a><br><a href="http://arccode.net/2016/05/02/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98SDK-%E4%B8%A4%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E6%94%AF%E4%BB%98/" target="_blank" rel="external">微信支付SDK-两行代码解决支付</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0329/4101.html" target="_blank" rel="external">Android Bitmap面面观</a><br><a href="http://blog.csdn.net/feelang/article/details/49000203" target="_blank" rel="external"> 利用 Android Annotations 来玩玩契约编程</a><br><a href="http://blog.csdn.net/feelang/article/details/49095235" target="_blank" rel="external">怎样用 Android Annotations 写出高性能代码</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;mid=400118620&amp;idx=1&amp;sn=b4fdd5055731290eef12ad0d17f39d4a&amp;scene=0&amp;uin=MTYzMjY2MTE1&amp;key=04dce534b3b035ef49d8b47c3f8dc1399d737e94c7a40b1a38561c6fcf48d000a1f40ec4bf530d2534dd865875c0c8c7&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.1+build(15B42" target="_blank" rel="external">安卓App热补丁动态修复技术介绍</a>&amp;version=11020201&amp;lang=en&amp;pass_ticket=1zsiC5hQfwATA4R3ndq32UtcvN%2B5kATcavEv4xN2HMY%3D)</p>
+<p><a href="http://ticktick.blog.51cto.com/823160/1710743" target="_blank" rel="external">Android中如何提取和生成mp4文件</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/49883661" target="_blank" rel="external"> Android 热补丁动态修复框架小结</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3Mjk1MjA4Nw==&amp;mid=400390453&amp;idx=1&amp;sn=ad5e93193f46ba1bdccafda26508d702#rd" target="_blank" rel="external">Android App 线上热修复方案</a><br><a href="http://mthli.github.io/singleTask-onActivityResult/" target="_blank" rel="external">解决 singleTask onActivityResult() 无效的问题</a><br><a href="https://github.com/wenmingvs/AndroidProcess" target="_blank" rel="external">判断指定App是否位于前台的方法</a><br><a href="http://www.cnblogs.com/lao-liang/p/4941653.html?f=tt&amp;hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">Android开发的那些坑和小技巧</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA4MjU5NTY0NA==&amp;mid=404388098&amp;idx=1&amp;sn=8bbbba7692dca68cdda2212dec4d86c0&amp;scene=1&amp;srcid=0320gXPloap70ixGeYnNUaAW&amp;key=710a5d99946419d972fe638b34e38edcf7064c302f8526f10b927c7e27886585b83b5b60bc342db482d2a7846e24c284&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.3+build(15D21" target="_blank" rel="external">你应该知道的那些Android小经验</a>&amp;version=11020201&amp;pass_ticket=pvdhfR4lRer%2FtYDsP5cnFux5OK0GM%2FUQMgt5TOvHlpQ%3D)<br><a href="http://sendcloud_track.batch.manong.io/track/click/eyJ1c2VyX2lkIjogMTg3LCAidGFza19pZCI6ICIiLCAiZW1haWxfaWQiOiAiMTQ1ODY1OTkwNjU3MF8xODdfODk3M18yMjM2LnNjLTEwXzEwXzI0XzE1Ni1pbmJvdW5kMCQ1MTE2NDQ3ODRAcXEuY29tIiwgInNpZ24iOiAiMTE1MzMzNTU4ODg0OTViY2FkZGRiMGRmZmFjODAyNWIiLCAidXNlcl9oZWFkZXJzIjoge30sICJsYWJlbCI6ICIxNjgzMyIsICJsaW5rIjogImh0dHAlM0EvL3dlZWtseS5tYW5vbmcuaW8vYm91bmNlJTNGdXJsJTNEaHR0cCUyNTNBJTI1MkYlMjUyRnd3dy5yb2dlcmJsb2cuY24lMjUyRjIwMTYlMjUyRjAzJTI1MkYxNyUyNTJGYW5kcm9pZC1wcm9lc3MlMjUyRiUyNmFpZCUzRDU1NzElMjZuaWQlM0QxMTAiLCAiY2F0ZWdvcnlfaWQiOiA2MDU4OX0=.html" target="_blank" rel="external">android:process 的坑，你懂吗？</a><br><a href="http://t.cn/RqPvBEl" target="_blank" rel="external">关于Android开发的40条优化建议</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTI4Nzk5Ng==&amp;mid=402517579&amp;idx=1&amp;sn=2951ec2b3aef4ce6f6a5c06ad4c49d73&amp;scene=1&amp;srcid=03306GCdiG6G4yhZIaDsHVL9&amp;key=710a5d99946419d9193b805ec5a41fb34a812c3dc4608557894831240095cf354407df239d9d78b9f6ab8b7a69a918be&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.4+build(15E65" target="_blank" rel="external">APK瘦身记，如何实现高达53%的压缩效果</a>&amp;version=11020201&amp;pass_ticket=AOchp9l%2F7Ug8gVFlX0%2BK1tAyLOPwStguLTy4jV5RBLc%3D)<br><a href="https://mp.weixin.qq.com/s?__biz=MzA4MjU5NTY0NA==&amp;mid=405574783&amp;idx=1&amp;sn=6ff49fda8a7229bf6b2692fddcf23e04&amp;scene=1&amp;srcid=0406rIx0Y8UeeSwlQkcWZO3D&amp;key=710a5d99946419d9c98f609fa48d8a98a8b1b1337c7c4ffffdd190537eabc103ed788c6434410e1129cd0428da695802&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.4+build(15E65" target="_blank" rel="external">Android MultiDex实践：如何绕过那些坑？</a>&amp;version=11020201&amp;pass_ticket=%2FiqZ3iooRz56i55SDTJXia%2F538BgsKzUx5BjjlLzrNU%3D)<br><a href="http://www.jianshu.com/p/c4f79bb23817" target="_blank" rel="external">APP瘦身之资源优化篇</a></p>
+<h1 id="Android_studio_u6559_u7A0B"><a href="#Android_studio_u6559_u7A0B" class="headerlink" title="Android studio教程"></a>Android studio教程</h1><p><a href="http://blog.csdn.net/yy1300326388/article/details/46374229" target="_blank" rel="external">配置出“NB”的Android Studio</a> </p>
+<h1 id="RxJava__u6559_u7A0B"><a href="#RxJava__u6559_u7A0B" class="headerlink" title="RxJava 教程"></a>RxJava 教程</h1><p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NTg1MjM0Mg==&amp;mid=509777575&amp;idx=1&amp;sn=9ace4885f32a1f274e4be8d839700486&amp;scene=0&amp;previewkey=nzeuLjmwTmgy6/ZhzIm6qswqSljwj2bfCUaCyDofEow=" target="_blank" rel="external">一张图读懂RxJava中的线程控制</a><br><a href="http://blog.chengyunfeng.com/?p=947" target="_blank" rel="external">RxJava 教程第一部分：入门之 Why Rx</a><br><a href="https://github.com/mcxiaoke/RxDocs" target="_blank" rel="external">Rx和RxJava文档中文翻译项目</a><br><a href="http://rxjava.yuxingxin.com/" target="_blank" rel="external">RxJava Essentials 中文翻译版</a><br><a href="http://gank.io/post/560e15be2dca930e00da1083#toc_1" target="_blank" rel="external">给 Android 开发者的 RxJava 详解</a><br><a href="https://github.com/lzyzsd/Awesome-RxJava" target="_blank" rel="external">RxJava学习资源</a><br><a href="https://github.com/mcxiaoke/xBus" target="_blank" rel="external">用 RxJava 实现 EventBus </a><br><a href="https://github.com/f2prateek/rx-receivers" target="_blank" rel="external">用 RxJava 实现 BroadcastReceiver</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1122/3711.html" target="_blank" rel="external">Rxlifecycle使用详解，解决RxJava内存泄露问题</a><br><a href="http://code.tutsplus.com/tutorials/getting-started-with-reactivex-on-android--cms-24387" target="_blank" rel="external">Getting Started With ReactiveX on Android</a><br><a href="http://blog.csdn.net/theone10211024/article/details/50435325" target="_blank" rel="external"> 可能是东半球最全的RxJava使用场景小结</a><br><a href="https://www.gitbook.com/book/yuxingxin/rxjava-essentials-cn/details?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">RxJava Essentials 一书的中文翻译版</a><br><a href="https://github.com/lzyzsd/Awesome-RxJava" target="_blank" rel="external">Awesome-RxJava</a><br><a href="http://www.jianshu.com/p/33c548bce571" target="_blank" rel="external">使用RxJava 提升用户体验</a><br><a href="http://blog.csdn.net/jijiaxin1989/article/details/50517068#0-tsina-1-18574-397232819ff9a47a7b7e80a40613cfe1" target="_blank" rel="external">我们为什么要在Android中使用RxJava</a><br><a href="http://gank.io/post/56e80c2c677659311bed9841" target="_blank" rel="external">RxJava 与 Retrofit 结合的最佳实践</a><br><a href="https://github.com/jiang111/RxJavaApp" target="_blank" rel="external">一个用于学习RxJava操作符的APP</a><br><a href="http://androidweekly.us9.list-manage.com/track/click?u=3f24a71686f577759d1824501&amp;id=f45c87bab2&amp;e=c10fafc873" target="_blank" rel="external">从案例学习RxAndroid</a><br><a href="http://www.jianshu.com/p/6917510b0e4c" target="_blank" rel="external">RxJava常见的使用场景总结</a><br><a href="https://realm.io/cn/news/kau-felipe-lima-adopting-rxjava-airbnb-android/" target="_blank" rel="external">我们的安卓客户端是如何使用 RxJava 的</a><br><a href="http://www.jianshu.com/p/916b72778145" target="_blank" rel="external">RxJava中的错误处理</a><br><a href="https://github.com/VictorAlbertos/RxActivityResult" target="_blank" rel="external">RxJava化的OnActivityResult—RxActivityResult </a><br><a href="https://github.com/rengwuxian/RxJavaSamples" target="_blank" rel="external">RxJava 和 Retrofit 结合使用的几个最常见使用方式举例</a><br><a href="https://github.com/cn-ljb/rxjava_for_android" target="_blank" rel="external">Android平台上RxJava的使用Demo集</a></p>
+<h1 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h1><p><a href="http://anany.me/2015/04/12/handler/" target="_blank" rel="external">Android Handler消息机制的理解</a><br><a href="http://blog.csdn.net/jianhua0902/article/details/49508945" target="_blank" rel="external">Android Handler消息机制的理解</a><br><a href="http://mouxuejie.com/blog/2016-03-31/message-looper-mechanism/" target="_blank" rel="external">Android消息循环机制源码分析</a></p>
+<h1 id="Adapter"><a href="#Adapter" class="headerlink" title="Adapter"></a>Adapter</h1><p><a href="https://github.com/tianzhijiexian/Android-Best-Practices/blob/master/2015.10/adapter/adapter.md" target="_blank" rel="external">Adapter优化方案的探索</a></p>
+<h1 id="u5F00_u6E90_u9879_u76EE"><a href="#u5F00_u6E90_u9879_u76EE" class="headerlink" title="开源项目"></a>开源项目</h1><p><a href="https://gank.io/post/56e80c2c677659311bed9841" target="_blank" rel="external">RxJava 与 Retrofit 结合的最佳实践</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0518/4270.html" target="_blank" rel="external">你真的会用Retrofit2吗?Retrofit2完全教程</a><br><a href="http://www.jianshu.com/p/a58d15ef5c8b" target="_blank" rel="external">从零开始开发一款Android App</a><br><a href="http://www.cxbiao.com/2016/05/14/Retrofit2%E4%B8%8ERxJava%E7%94%A8%E6%B3%95%E8%A7%A3%E6%9E%90/" target="_blank" rel="external">Retrofit2与RxJava用法解析</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0504/4208.html" target="_blank" rel="external">Retrofit2 完全解析 探索与okhttp之间的关系</a><br><a href="https://github.com/wingjay/android-open-source-project-cracking" target="_blank" rel="external">通过对流行的优质android开源项目分析、学习、仿写</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzAxNjI3MDkzOQ==&amp;mid=400055274&amp;idx=1&amp;sn=89005ccb6b4317675c54ccf61cdb89b5#rd" target="_blank" rel="external">开源选型之 Android 三大图片缓存原理、特性对比</a><br><a href="http://www.jianshu.com/p/4a3177b57949" target="_blank" rel="external">Glide 一个专注于平滑滚动的图片加载和缓存库</a><br><a href="http://segmentfault.com/a/1190000003965158" target="_blank" rel="external">Android实战之你应该使用哪个网络库？</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1111/3678.html" target="_blank" rel="external">okHttp，GreenDao，EventBus简单封装使用</a><br><a href="https://futurestud.io/blog/retrofit-getting-started-and-android-client/" target="_blank" rel="external">Retrofit 入门教程</a><br><a href="http://blog.csdn.net/biezhihua/article/details/49232289" target="_blank" rel="external">好用的网络请求库Retrofit2（入门及讲解）</a><br><a href="https://github.com/desmond1121/Android-Ptr-Comparison/blob/master/README.md" target="_blank" rel="external">安卓下拉刷新开源库对比</a><br><a href="http://allenlin.leanote.com/post/volleyokhttpgson" target="_blank" rel="external">Volley+OkHttp3+Gson（Jackson）开源库的封装过程</a><br><a href="http://brucezz.github.io/articles/2016/02/21/effective-okhttp/" target="_blank" rel="external">如何更高效地使用 OkHttp</a><br><a href="http://email.mail.gank.io/c/eJwVjksOgzAMBU9DlpEdOx8WWbRS4QA9AAqQ0qgECkrv3yD5-Y28Gc-ep4nIiOQVoAGGK04biWSIpMaKYB4Ou7trGHJIq1zC9pFpF2-PVrfBtIgGSY0WYOTZOXY6ArU0RZE9IrasnFj9u5RvQ7dGdXXy-frJHCtd3lqgLrZ19Wua49DHUtK2DM8SzhLnehen19XEbB3XV45DTnv-A44rM2k" target="_blank" rel="external">Glide 深入研究 </a><br><a href="https://mail.qq.com/cgi-bin/frame_html?sid=jv49Mye5pdrXChRD&amp;r=814efd55a7c3af31c3e5490bfc25de07" target="_blank" rel="external">Glide 系列使用教程</a><br><a href="http://bugly.qq.com/bbs/forum.php?mod=viewthread&amp;tid=1117#rd" target="_blank" rel="external">深入浅出 Retrofit，这么牛逼的框架你们还不来看看？</a></p>
+<h1 id="u8BBE_u8BA1_u5E08"><a href="#u8BBE_u8BA1_u5E08" class="headerlink" title="设计师"></a>设计师</h1><p><a href="http://www.shejipai.cn/map-file-naming-and-specification.html" target="_blank" rel="external">APP界面切图命名和文件整理规范</a><br><a href="http://www.shejipai.cn/ios-android-compare-ui.html" target="_blank" rel="external">双管齐下：同时设计 iOS 和 Android</a></p>
+<h1 id="u4E66"><a href="#u4E66" class="headerlink" title="书"></a>书</h1><p><a href="https://www.gitbook.com/book/leohxj/a-programmer-prepares/details?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">程序员的自我修养</a></p>
+<h1 id="u539F_u7406"><a href="#u539F_u7406" class="headerlink" title="原理"></a>原理</h1><p><a href="http://weishu.me/2016/05/11/understand-plugin-framework-service/" target="_blank" rel="external">Android 插件化原理解析——Service的插件化</a><br><a href="https://yq.aliyun.com/articles/3005" target="_blank" rel="external">Android绘制流程</a><br><a href="http://www.codekk.com/blogs/detail/54cfab086c4761e5001b253f" target="_blank" rel="external">公共技术点之 View 绘制流程</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1115/3684.html" target="_blank" rel="external">Android热更新实现原理</a><br><a href="http://www.cnblogs.com/android100/p/Android-Context.html" target="_blank" rel="external">Android源码分析-全面理解Context</a><br><a href="http://www.cnblogs.com/loulijun/archive/2012/02/09/2344681.html" target="_blank" rel="external">Android杂谈–Activity、Window、View的关系</a><br><a href="http://blog.csdn.net/yanbober/article/details/49904715" target="_blank" rel="external">Android应用开发Scroller详解及源码浅析</a><br><a href="http://blog.csdn.net/yanbober/article/details/50411919" target="_blank" rel="external"> Android应用开发之自定义View触摸相关工具类全解</a><br><a href="http://android.jobbole.com/82409/" target="_blank" rel="external">理解Android安全机制</a><br><a href="http://blog.csdn.net/guolin_blog/article/details/48719871" target="_blank" rel="external">Android Scroller完全解析，关于Scroller你所需知道的一切</a><br><a href="http://zhuanlan.zhihu.com/kaede/20564614?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">阅读Android源码的一些姿势</a><br><a href="http://blog.chengdazhi.com/index.php/110?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">深入理解LayoutInflater.inflate()</a><br><a href="http://droidyue.com/blog/2016/02/21/thinking-of-getting-the-current-activity-in-android/" target="_blank" rel="external">关于获取当前Activity的一些思考</a><br><a href="http://t.cn/RqhoVje" target="_blank" rel="external">ViewAnimator源码分析</a><br><a href="http://email.mail.gank.io/c/eJw1j02KwzAMhU8TL40k26q98CIDLcxuFr2A6oQ2pEl_0ln09pVgBuyn76EnGQ81thYCu6kSIEOgpDcm8mTsOWPmLsIi09WfZZ39dHOXCokzMMkQsxQgKSOPNJIA44DtBG6piFgiZXetl9fr3oW-o4Oe7S7P-f0rq19GtfaoFgjGJv32XttRtrmjtNdW-tLBVMDsTqU3ymg2GRXr8n-47P_Cuf_5ViSwpZo5uGdNiBzjLkf9z-Ph2235AEOPPvw" target="_blank" rel="external">AsyncTask源码剖析</a></p>
+<h1 id="u4F18_u5316"><a href="#u4F18_u5316" class="headerlink" title="优化"></a>优化</h1><p><a href="http://android.jobbole.com/81944/" target="_blank" rel="external">给 App 提速：Android 性能优化总结</a><br><a href="http://www.jayfeng.com/2015/11/07/Android%E6%89%93%E5%8C%85%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" target="_blank" rel="external">Android打包的那些事</a><br><a href="http://www.devtf.cn/?p=1097" target="_blank" rel="external">加速你的Android应用</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=400674207&amp;idx=1&amp;sn=a9580ca0dffc62a6d7dbb8fd3d7a2ef1&amp;scene=0&amp;key=b410d3164f5f798e3f4b6de393face7f291ae1d5d6ce312646e1e72ba2b6849e52d3ef5d2d0e4e8579cc7841aac8b439&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.1+build(15B42" target="_blank" rel="external">内存泄露从入门到精通三部曲之基础知识篇</a>&amp;version=11020201&amp;pass_ticket=hgYTL4MW7%2FI9mnat%2BT9S2RRS0IkFfm6yOLSy%2F4bguL4%3D)<br><a href="http://droidyue.com/blog/2015/11/01/thinking-about-android-log/" target="_blank" rel="external">关于Android Log的一些思考</a><br><a href="http://keeganlee.me/post/android/20150605" target="_blank" rel="external">Android项目重构之路:架构篇</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=400891536&amp;idx=1&amp;sn=0b6c629b0abe4a359d6552cd244c0c0c&amp;scene=0&amp;key=d4b25ade3662d6432f4d008c35c73be9edb35e268795decfd642e018f5b9b57ccf844430313ae8cae1936ae1af28f657&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.1+build(15B42" target="_blank" rel="external">内存泄露从入门到精通三部曲之排查方法篇</a>&amp;version=11020201&amp;pass_ticket=DhP26XYXJwz4Wb0cgRmjgcxeGfVbtRncCyGulGN45GY%3D)<br><a href="http://bugly.qq.com/blog/?p=884" target="_blank" rel="external">内存泄露从入门到精通三部曲之常见原因与用户实践</a><br><a href="https://realm.io/cn/news/droidcon-farber-improving-android-app-performance/" target="_blank" rel="external">10 条提升 Android 性能的建议</a><br><a href="http://androidperformance.com/2015/11/18/Android-app-lunch-optimize-delay-load.html" target="_blank" rel="external">Android应用启动优化:一种DelayLoad的实现和原理</a><br><a href="http://www.kuqin.com/shuoit/20150928/348295.html" target="_blank" rel="external">Android性能调优利器StrictMode</a><br><a href="http://android.jobbole.com/82182/" target="_blank" rel="external">Android性能优化之被忽视的优化点</a><br><a href="http://www.jianshu.com/p/145fc61011cd" target="_blank" rel="external">Android性能优化之如何避免Overdraw</a><br><a href="http://droidyue.com/blog/2015/12/13/android-sqlite-tuning/" target="_blank" rel="external">Android 中 SQLite 性能优化</a><br><a href="http://yq.aliyun.com/articles/53?&amp;utm_campaign=sys&amp;utm_medium=market&amp;utm_source=edm_email&amp;msctype=email&amp;mscmsgid=108015121700582161&amp;" target="_blank" rel="external">手机淘宝性能优化</a><br><a href="http://yq.aliyun.com/articles/1477?spm=5176.100238.yqhn2.41.TapcjW" target="_blank" rel="external">手淘双十一系列（一） | 521 性能优化项目揭秘</a><br><a href="http://android.jobbole.com/82316/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">Android退出应用最优雅的方式</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=403263974&amp;idx=1&amp;sn=b0315addbc47f3c38e65d9c633a12cd6" target="_blank" rel="external">Android 开发绕不过的坑：你的 Bitmap 究竟占多大内存？</a><br><a href="http://blog.zhaiyifan.cn/2016/01/16/BlockCanaryTransparentPerformanceMonitor/" target="_blank" rel="external">BlockCanary — 轻松找出Android App界面卡顿元凶</a><br><a href="http://www.jianshu.com/p/a721fbaa62ab" target="_blank" rel="external">使用pngquant来缩小你的APK</a><br><a href="http://hukai.me/android-performance-patterns-season-4/" target="_blank" rel="external">Android性能优化典范</a><br><a href="http://music4kid.github.io//android/2016/01/11/android-performance-ui/" target="_blank" rel="external">Android UI性能优化详解</a><br><a href="http://www.jayfeng.com/2015/12/29/APK%E7%98%A6%E8%BA%AB%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">[个人总结]APK瘦身实践</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=403426100&amp;idx=1&amp;sn=aceffb315d63fa0139b0e1c2b0edce64&amp;scene=0&amp;key=710a5d99946419d909c81f932a79710be0582b714c090ef6ac916b002ebd168fd146b8132d3282cc861544ba194025e0&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.2+build(15C50" target="_blank" rel="external">Android中导致内存泄漏的竟然是它—-Dialog</a>&amp;version=11020201&amp;pass_ticket=3czwvrJ0y4smIOu90jD4B8NFtnWfzwg%2FT2S2qlILyyY%3D)<br><a href="https://realm.io/cn/news/android-threading-background-tasks/" target="_blank" rel="external">优化 Android 线程和后台任务开发</a><br><a href="https://yq.aliyun.com/articles/3009?spm=5176.100238.yqhn2.14.yN83zE&amp;comefrom=http://blogread.cn/news/" target="_blank" rel="external">Android 内存泄漏总结</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=402380504&amp;idx=1&amp;sn=7013f0842867a21555adcf445c7c03ee#rd" target="_blank" rel="external">Android APK终极瘦身21招</a><br><a href="https://drakeet.me/android-leaks" target="_blank" rel="external">Android 内存泄漏案例和解析</a><br><a href="http://www.cnblogs.com/JohnTsai/p/5256295.html" target="_blank" rel="external">Android开发——避免内存泄露</a></p>
+<h1 id="u63D0_u9AD8"><a href="#u63D0_u9AD8" class="headerlink" title="提高"></a>提高</h1><p><a href="http://email.mail.gank.io/c/eJwdTssOgzAM-xp6W5W06evQwyS0_0BNGdVgwNZJ4-9XJtmxfbBijpSS1laUqAAtGLBAjVoGA-Bk8BBQ-h6dVtR3BMtQZnkfng9ZVjFFdsYAMaAO3o6BkUdgZRMbHj3kLJaIiIGUF3Ocat06fe3UreE4OPGnyrQuLZ3Pm4D--3be21zqhfO3efGKBtESOU9twr6fpR-SOjGz#编译环境" target="_blank" rel="external">包括65536原因、multidex解决、NoClassDefFoundError、Application Not Responding、App首次启动加载方案等</a><br><a href="http://blog.csdn.net/innost/article/details/49387395" target="_blank" rel="external">深入理解Android之AOP</a><br><a href="http://blog.ibireme.com/2015/11/02/mobile_image_benchmark/" target="_blank" rel="external">移动端图片格式调研</a><br><a href="http://chinagdg.org/2016/01/picking-your-compilesdkversion-minsdkversion-targetsdkversion/" target="_blank" rel="external">如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzEwOTkyMQ==&amp;mid=416184980&amp;idx=1&amp;sn=193b2a8aa3ac91fe54f647068c659633" target="_blank" rel="external">Android平台的崩溃捕获机制及实现</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=401890966&amp;idx=1&amp;sn=b8d888acb7d4ace5d4e579a5588bf90b&amp;scene=1&amp;srcid=0219aSN6dGolDZQV0GnyqDPP&amp;from=groupmessage&amp;isappinstalled=0#wechat_redirect" target="_blank" rel="external">携程Android App插件化和动态加载实践</a><br><a href="http://weishu.me/2016/01/12/binder-index-for-newer/" target="_blank" rel="external">Binder学习指南</a><br><a href="http://sixwolf.net/blog/2016/01/30/Android%E4%BD%BF%E7%94%A8FFMpeg%E5%AE%9E%E7%8E%B0%E6%8E%A8%E9%80%81%E8%A7%86%E9%A2%91%E7%9B%B4%E6%92%AD%E6%B5%81%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_blank" rel="external">Android使用FFMpeg实现推送视频直播流到服务器</a><br><a href="https://github.com/jiang111/awesome-android-tips" target="_blank" rel="external">这里收集了大家常用的一些Android的模板代码</a><br><a href="http://email.mail.gank.io/c/eJw9kEluwzAMRU9jLwVSoqaFFkrq3MNTEqO21aQGmuOHDGoDwiMfPjVAQ6K-N8bVU9KADow2QAQQFAISl2jAgzKogbw_VwRLO83q1q7fair1PcXOO-NdjP0YRnDYeeN4FnSwbX-1Q70kRIykQz2n-7b9VCZX-sLrd3r9lfmq1nFj6-Zy4yKP4AJGes3I6_As01Bp21hGbhhR0HhGkO4ER0qSZlEnehagaJRAduS8a4Adn-FTELXHcNzP-6TRHheJhq__t1zqZ7KIjsgH4t95PFRfljdBj1EE" target="_blank" rel="external">Android实现多次闪退清除数据</a><br><a href="http://email.mail.gank.io/c/eJxVj90OwiAMhZ9mXBJaoIMLLmayvcf-VOI2nC7Rx7c18cKkPT0fbdMwJTeO1pLKCQ2Qseg5nUeN4jUFCFQ5s_Z50Zd-u-lc1DXBRN6EuY449J6nI0KcZxwGRO851JoAIDoMaknX47hXtqmw43jm96ssZ73NB9OwlAsXOc3FWPEizTY9Sp4q9G1gOdUsTScoLjp5A0GShrhAP4ytdOm323yx_UPZ6NQjeQByrg6Of7jveizrB5zhQrs" target="_blank" rel="external">Android路由框架设计与实现</a><br><a href="http://weishu.me/2016/04/05/understand-plugin-framework-classloader/" target="_blank" rel="external">Android 插件化原理解析——插件加载机制</a><br><a href="http://jijiaxin89.com/2015/08/30/Android-s-Runtime-Permission/" target="_blank" rel="external">Android M 新的运行时权限开发者需要知道的一切</a><br><a href="http://diycode.cc/news/301" target="_blank" rel="external">Android 插件化开发专题</a></p>
+<h1 id="u65B0_u7279_u6027"><a href="#u65B0_u7279_u6027" class="headerlink" title="新特性"></a>新特性</h1><p><a href="http://kymjs.com/code/2016/05/15/01" target="_blank" rel="external">8个类搞定插件化(上)</a><br><a href="http://zjutkz.net/2016/04/23/%E8%A6%81%E5%81%9A%E4%B8%80%E4%B8%AA%E6%9C%89%E5%86%92%E9%99%A9%E7%B2%BE%E7%A5%9E%E7%9A%84%E4%BA%BA%EF%BC%81%E5%BC%80%E5%90%AF%E6%BC%AB%E6%BC%AB%E7%9A%84agera%E4%B9%8B%E6%97%85/" target="_blank" rel="external">要做一个有冒险精神的人！开启漫漫的agera之旅</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;mid=400185947&amp;idx=1&amp;sn=a591b76d2c9a085791fd4f12a5b31738&amp;scene=2&amp;srcid=11067beUUcVUcBRI1ajZZ2p7&amp;from=timeline&amp;isappinstalled=0&amp;key=b410d3164f5f798e6f3fbdb81070f8443873c0d4632acc14a6513981556fa35169ba650e853f94945b244528cbd58799&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.1+build(15B42" target="_blank" rel="external">Android M新特性Doze and App Standby模式详解</a>&amp;version=11020201&amp;pass_ticket=hgYTL4MW7%2FI9mnat%2BT9S2RRS0IkFfm6yOLSy%2F4bguL4%3D)<br><a href="http://droidyue.com/blog/2016/01/17/understanding-marshmallow-runtime-permission/" target="_blank" rel="external">聊一聊Android 6.0的运行时权限</a><br><a href="http://www.jianshu.com/p/4ce0f3419ca8" target="_blank" rel="external">AppBar简述</a><br><a href="https://github.com/SpikeKing/TestAppBar" target="_blank" rel="external">AppBar的详解</a><br><a href="http://www.jianshu.com/p/dbe4d37731e6" target="_blank" rel="external">Android 6.0: 动态权限管理的解决方案</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/50709663" target="_blank" rel="external">Android 6.0 运行时权限处理完全解析</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0226/3996.html" target="_blank" rel="external">Android Support Library 23.2有哪些新东西</a><br><a href="http://email.mail.gank.io/c/eJwVjjsOwyAQRE9jSsTCLp-Cgib3wEuISfxNHPn6IdJM8zTSmxKR2RgrWtQKrELlFUIAkhrQeRmCRyspKZ2I0oBqyW2Wj7y-ZNvEFB0b9g5xJOMz6Orp7kxFtrVQcbqIJQJAQO3FHKfz3AeTBn3rua5LPlteP9NX8rZ0svc6zpY01VJ4FO9IABb7D-zm4_jvfgyMMFA" target="_blank" rel="external">AndroidStudyDemo之Android4.x介绍</a><br><a href="https://github.com/tianzhijiexian/DBinding" target="_blank" rel="external">MVVM-DBinding</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzIxNDE1NjQ2Mw==&amp;mid=2649872243&amp;idx=1&amp;sn=e4998ed201087249de74731beb9ea423#rd" target="_blank" rel="external">HotFix的抉择</a><br><a href="http://www.jianshu.com/p/cd1e80e64311" target="_blank" rel="external">没时间解释了，快使用Snackbar!——Android Snackbar花式使用指南</a></p>
+<h1 id="u67B6_u6784"><a href="#u67B6_u6784" class="headerlink" title="架构"></a>架构</h1><p><a href="http://www.jianshu.com/p/d299153ff853" target="_blank" rel="external">浅析MVP中model层设计</a><br><a href="http://www.jianshu.com/p/01d3c014b0b1" target="_blank" rel="external">Google官方MVP+Dagger2架构详解</a><br><a href="http://tikitoo.github.io/2016/05/24/medium-android-tools-zh/" target="_blank" rel="external">Medium Android 客户端都使用了哪些开源项目？</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI0NjIzNDkwOA==&amp;mid=2247483673&amp;idx=1&amp;sn=ba9cf498ab78646f1a9c9e711f65c360&amp;scene=1&amp;srcid=0527JyTxU6ucKtlLVyl7REaB&amp;key=f5c31ae61525f82e698b6094b37f9ebf8d09621eb79ab3273a52319889e2bb3ded03234e5ccae340f3094605a44858dc&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.4+build(15E65" target="_blank" rel="external">英语流利说 Android 架构演进</a>&amp;version=11020201&amp;pass_ticket=JtFbOWzVz0QaHe5dN1epxdryv2HEDINGpaqXxeWcwGI%3D)<br><a href="http://www.jianshu.com/p/569ab68da482" target="_blank" rel="external">google官方架构MVP解析与实战【从零开始搭建android框架系列（3）】</a><br><a href="http://webfuse.cn/2016/04/21/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E8%AF%BB%E4%B9%8B%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">《程序员必读之软件架构》读书笔记</a><br><a href="http://android.jobbole.com/82512/" target="_blank" rel="external">App架构设计经验谈:接口的设计</a><br><a href="http://zjutkz.net/2016/04/13/%E9%80%89%E6%8B%A9%E6%81%90%E6%83%A7%E7%97%87%E7%9A%84%E7%A6%8F%E9%9F%B3%EF%BC%81%E6%95%99%E4%BD%A0%E8%AE%A4%E6%B8%85MVC%EF%BC%8CMVP%E5%92%8CMVVM/" target="_blank" rel="external">选择恐惧症的福音！教你认清MVC，MVP和MVVM</a><br><a href="http://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=400163013&amp;idx=1&amp;sn=911cf71925e2ba50d47955a713134acb&amp;scene=2&amp;srcid=1024VUjDjr5hy3hpqvaZ72D3&amp;from=timeline&amp;isappinstalled=0#rd" target="_blank" rel="external">微信为啥这么省流量（技术宅入）</a><br><a href="http://android.jobbole.com/82080/" target="_blank" rel="external">Android 项目重构之路：界面篇</a><br><a href="http://blog.zhaiyifan.cn/2015/11/20/HotPatchCompare/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">各大热补丁方案分析和比较</a><br><a href="http://kymjs.com/code/2015/11/09/01/" target="_blank" rel="external">用MVP架构开发Android应用</a><br><a href="http://www.jianshu.com/p/8ca27934c6e6" target="_blank" rel="external">Android应用架构</a><br><a href="http://toughcoder.net/blog/2015/11/29/understanding-android-mvp-pattern/" target="_blank" rel="external">说说Android的MVP模式</a><br><a href="http://toughcoder.net/blog/2015/11/29/understanding-android-mvp-pattern/" target="_blank" rel="external">说说Android的MVP模式</a><br><a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="external">几幅图MVC，MVP 和 MVVM框架一下子全明白了！</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzAxNDUwMzU3Mw==&amp;mid=401044540&amp;idx=1&amp;sn=24b7d8fb655ae6dd5d989d0cb3c08e90" target="_blank" rel="external">饿了么移动APP的架构演进</a><br><a href="https://github.com/Juude/Awesome-Android-Architecture" target="_blank" rel="external">Android架构合集</a><br><a href="http://blog.zhaiyifan.cn/2016/01/29/android-app-architecture-2015/?from=groupmessage&amp;isappinstalled=0" target="_blank" rel="external">Android应用架构</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=402486518&amp;idx=1&amp;sn=e466c3cfcbe02126d92f81cfc347fba4#rd" target="_blank" rel="external">Android干净架构详解：为你的应用打造一个清爽的架构！</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=402842876&amp;idx=1&amp;sn=e15d596c95bf7d1ed579cfd7e410696a&amp;scene=1&amp;srcid=0315cLs789Ej7XkMleLpkxHE&amp;key=710a5d99946419d97e9c08070121534434102c68991612315319a18a6a15d57b74a1908cf0323fb6069efa758e34889c&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.3+build(15D21" target="_blank" rel="external">不要写死！天猫App的动态化配置中心实践</a>&amp;version=11020201&amp;pass_ticket=k0qKNM4TZo426DYTd0YLgC8zV3UKUywv%2Fk7W7VEvbY8%3D)<br><a href="http://sendcloud_track.batch.manong.io/track/click/eyJ1c2VyX2lkIjogMTg3LCAidGFza19pZCI6ICIiLCAiZW1haWxfaWQiOiAiMTQ1ODY1OTkwNjU3MF8xODdfODk3M18yMjM2LnNjLTEwXzEwXzI0XzE1Ni1pbmJvdW5kMCQ1MTE2NDQ3ODRAcXEuY29tIiwgInNpZ24iOiAiMjZkN2EzMWViNWQxY2YxMGQ0NDdhMGRhMGIyMzY1NzQiLCAidXNlcl9oZWFkZXJzIjoge30sICJsYWJlbCI6ICIxNjgzMyIsICJsaW5rIjogImh0dHAlM0EvL3dlZWtseS5tYW5vbmcuaW8vYm91bmNlJTNGdXJsJTNEaHR0cCUyNTNBJTI1MkYlMjUyRnd3dy50aWFubWF5aW5nLmNvbSUyNTJGdHV0b3JpYWwlMjUyRkFuZHJvaWRNVkMlMjZhaWQlM0Q1NTY5JTI2bmlkJTNEMTEwIiwgImNhdGVnb3J5X2lkIjogNjA1ODl9.html" target="_blank" rel="external">Android App的设计架构：MVC,MVP,MVVM与架构经验谈</a><br><a href="http://toutiao.io/r/cwmt3k" target="_blank" rel="external">App架构经验总结</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=402868193&amp;idx=1&amp;sn=790e12f84dfcea171528e6d3789c69ed&amp;scene=1&amp;srcid=0318edkkVeWbjOhcNH6WDTZQ&amp;key=710a5d99946419d971dd3aa71f3cb0b2e509051adcdbc9164c1787ffeeaf37389747b35a2c1c899c3ec825d8bc190ec1&amp;ascene=0&amp;uin=Mjc3OTU3Nzk1&amp;devicetype=iMac+MacBookPro9%2C2+OSX+OSX+10.10.3+build%2814D136%29&amp;version=11020201&amp;pass_ticket=e3qL7YcbmknxduKwWiyzQxJoeiIW7hRFdqBaO206p868fDQqQ7UIiIsPe%2FiSY23E" target="_blank" rel="external">Android MVP架构中的Presentation层应该怎么设计</a><br><a href="http://email.mail.gank.io/c/eJwVjUsOwyAMBU8TlsjGBpwFi6hS7xFANLT5tqly_VLpzWY00suBUyJyqgYD6ICMALEH0AjIzmqx1lvNg5Hhxr5jWMY668e4vnTd1BQguwSOwIONKZLLMRmxvfReCHJxagmI2LMRNYfpPPeOhs7c267r0s86rp_pq9O2NLM3uKA1MUnhQp0h9Q4W0TF74XZ-HP_0B4hZMDo" target="_blank" rel="external">我的 Android 开发实战经验总结</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=403254393&amp;idx=1&amp;sn=8dc0e3a03031177777b5a5876cb210cc&amp;scene=1&amp;srcid=0402uDoqRaKQffY51mJ0N8G6&amp;key=710a5d99946419d98b567bf76a8e4f11bb50879bb6d2238881b4ab84e10cc0840e943ea3003a0106d73399e336311cec&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.4+build(15E65" target="_blank" rel="external">微信Android客户端后台保活经验分享</a>&amp;version=11020201&amp;pass_ticket=gGDjhIlTQ7vPThoj%2FZ5xrdCNNXWwfjAXhqZnbyhnJmQ%3D)<br><a href="http://androidweekly.us9.list-manage.com/track/click?u=3f24a71686f577759d1824501&amp;id=5a7252222e&amp;e=c10fafc873" target="_blank" rel="external">Android MVP 详解（上）</a><br><a href="http://androidweekly.us9.list-manage.com/track/click?u=3f24a71686f577759d1824501&amp;id=587e2b135a&amp;e=c10fafc873" target="_blank" rel="external">Android MVP 详解（下）</a><br><a href="http://blog.chengdazhi.com/index.php/150" target="_blank" rel="external">我眼中的Android架构</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=403539764&amp;idx=1&amp;sn=d30d89e6848a8e13d4da0f5639100e5f&amp;scene=0#wechat_redirect" target="_blank" rel="external">Android官方MVP架构示例项目解析</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=403539764&amp;idx=1&amp;sn=d30d89e6848a8e13d4da0f5639100e5f#rd" target="_blank" rel="external">Android官方MVP架构示例项目解析</a><br><a href="http://zjutkz.net/2016/04/13/%E9%80%89%E6%8B%A9%E6%81%90%E6%83%A7%E7%97%87%E7%9A%84%E7%A6%8F%E9%9F%B3%EF%BC%81%E6%95%99%E4%BD%A0%E8%AE%A4%E6%B8%85MVC%EF%BC%8CMVP%E5%92%8CMVVM/#more" target="_blank" rel="external">选择恐惧症的福音！教你认清MVC，MVP和MVVM</a><br><a href="https://www.sdk.cn/news/2501" target="_blank" rel="external">Android App的设计架构：MVC,MVP,MVVM与架构经验谈</a></p>
+<h1 id="u9002_u914D"><a href="#u9002_u914D" class="headerlink" title="适配"></a>适配</h1><p><a href="http://leoray.leanote.com/post/android-resolution" target="_blank" rel="external">安卓分辨率的相关知识</a><br><a href="http://leoray.leanote.com/post/android-resource" target="_blank" rel="external">安卓资源及适配的一些问题</a><br><a href="https://github.com/hongyangAndroid/AndroidAutoLayout?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">AndroidAutoLayout：Android 屏幕适配方案</a></p>
+<h1 id="u535A_u5BA2"><a href="#u535A_u5BA2" class="headerlink" title="博客"></a>博客</h1><p><a href="http://leoray.leanote.com/" target="_blank" rel="external">leanote</a></p>
+<h1 id="u5B98_u65B9_u5B66_u4E60_u7F51_u7AD9/Wiki"><a href="#u5B98_u65B9_u5B66_u4E60_u7F51_u7AD9/Wiki" class="headerlink" title="官方学习网站/Wiki"></a>官方学习网站/Wiki</h1><p><a href="http://developer.android.com/" target="_blank" rel="external">Android Developer</a><br><a href="http://androiddoc.qiniudn.com/index.html" target="_blank" rel="external">Android Developer(无需梯子)</a><br><a href="http://hukai.me/android-training-course-in-chinese/index.html" target="_blank" rel="external">Android Training 中文版</a><br><a href="http://wiki.jikexueyuan.com/project/material-design/" target="_blank" rel="external">Material Design 中文版</a><br><a href="https://github.com/bboyfeiyu/Worth-Reading-the-Android-technical-articles" target="_blank" rel="external">值得阅读的android技术文章 </a><br><a href="http://bxbxbai.github.io/2014/10/07/android-develop-resource/" target="_blank" rel="external">整理一些比较好的Android开发教程 </a><br><a href="http://blog.csdn.net/coder_pig/article/details/50000773#t8" target="_blank" rel="external">2015年最新Android基础入门教程目录(完结版)</a></p>
+<h1 id="u9762_u8BD5_u9898"><a href="#u9762_u8BD5_u9898" class="headerlink" title="面试题"></a>面试题</h1><p><a href="http://blog.csdn.net/mc_hust/article/details/49517915" target="_blank" rel="external">很详细的Android工程师面试题大全</a><br><a href="https://github.com/leerduo/InterviewQuestion" target="_blank" rel="external">Android 面试常见问题</a><br><a href="http://blog.csdn.net/lpjishu/article/details/50316919" target="_blank" rel="external">衡量android开发者水平的面试问题</a><br><a href="http://xiazdong.me/2015/03/08/android-launchmode-application/" target="_blank" rel="external">Activity LaunchMode 应用场景</a><br><a href="http://blog.csdn.net/xiaodongrush/article/details/28597855" target="_blank" rel="external">Activity的LaunchMode应用场景思考</a><br><a href="/selfimgrhexo/Android 编程下 Touch 事件的分发和消费机制">Android 编程下 Touch 事件的分发和消费机制</a><br><a href="http://android.jobbole.com/82431/" target="_blank" rel="external">ndroid子线程真的不能更新UI么</a><br><a href="http://sendcloud_track.batch.manong.io/track/click/eyJ1c2VyX2lkIjogMTg3LCAidGFza19pZCI6ICIiLCAiZW1haWxfaWQiOiAiMTQ1NzQ1MTk2NjA0NF8xODdfMTM3MTBfMjEwMi5zYy0xMF8xMF8yNF8xODQtaW5ib3VuZDAkNTExNjQ0Nzg0QHFxLmNvbSIsICJzaWduIjogIjIzZTQ0ZDhmYTBlOGQ4YTQyODMzYTRhODA4ZmNkMzEyIiwgInVzZXJfaGVhZGVycyI6IHt9LCAibGFiZWwiOiAiMTY4MzMiLCAibGluayI6ICJodHRwJTNBLy93ZWVrbHkubWFub25nLmlvL2JvdW5jZSUzRnVybCUzRGh0dHAlMjUzQSUyNTJGJTI1MkZ3d3cuc3VuaGFvamllLmNvbSUyNTJGMjAxNiUyNTJGMDElMjUyRjA2JTI1MkYlMjUyNUU3JTI1MjVBOCUyNTI1OEIlMjUyNUU1JTI1MjVCQSUyNTI1OEYlMjUyNUU1JTI1MjU5MSUyNTI1OTglMjUyNUU2JTI1MjU4MCUyNTI1OEUlMjUyNUU0JTI1MjVCOSUyNTI1ODglMjUyNUU4JTI1MjU4RSUyNTI1QjclMjUyNUU1JTI1MjVCRSUyNTI1OTclMjUyNUU5JTI1MjVBQiUyNTI1OTglMjUyNUU1JTI1MjVCNyUyNTI1QTUlMjUyNUU4JTI1MjVCNSUyNTI1ODQlMjUyRiUyNmFpZCUzRDU0NzglMjZuaWQlM0QxMDgiLCAiY2F0ZWdvcnlfaWQiOiA2MDU4OX0=.html" target="_blank" rel="external">程序员怎么获得高工资</a><br><a href="http://blog.csdn.net/jdsjlzx/article/details/40738053" target="_blank" rel="external"> Andorid-15k+的面试题。</a><br><a href="http://hit-alibaba.github.io/interview/basic/index.html" target="_blank" rel="external">笔试面试知识整理</a><br><a href="http://t.cn/RqhXz7D" target="_blank" rel="external">Android开发知识清单整理</a><br><a href="http://yuweiguocn.github.io/2016/04/13/interview-2016-big-company/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">2016Android某公司面试题</a></p>
+<h1 id="u5F00_u53D1_u5DE5_u5177"><a href="#u5F00_u53D1_u5DE5_u5177" class="headerlink" title="开发工具"></a>开发工具</h1><p><a href="http://saulmm.github.io/the-powerful-android-studio" target="_blank" rel="external">Android Studio 一些快捷键的整理，提高效率怎么能少得了这篇</a><br><a href="https://blog.coding.net/blog/principle-of-Git" target="_blank" rel="external">使用原理视角看 Git</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzAxMTI4MTkwNQ==&amp;mid=2650820316&amp;idx=1&amp;sn=49d4e6b68b114a2e8a8e88f3d1b0cd9e" target="_blank" rel="external">自己编写Android Studio插件 别停留在用的程度了</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzAxMzYyNDkyNA==&amp;mid=2651332070&amp;idx=1&amp;sn=2fae22d0089b0af8ace73280f05492b1&amp;scene=1&amp;srcid=0530uZEAvbQFuj1HUrTYUtVd#wechat_redirect" target="_blank" rel="external">微信测试工程师手把手教你做弱网络模拟测试</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA4MzEwOTkyMQ==&amp;mid=2667374595&amp;idx=1&amp;sn=96fe214204da55caa3e583039352f57c&amp;scene=1&amp;srcid=0526z8qs53Na9zgREPwwnwDo&amp;key=f5c31ae61525f82e5eef53cc0fef95064d607ec207c7c97b0ef3c414a5763622ab45f2a4ee73fef99080a2473c6ec7f1&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.4+build(15E65" target="_blank" rel="external">深入浅出Android打包</a>&amp;version=11020201&amp;pass_ticket=JtFbOWzVz0QaHe5dN1epxdryv2HEDINGpaqXxeWcwGI%3D)<br><a href="http://weishu.me/2016/05/30/how-to-debug-android-framework/" target="_blank" rel="external">如何调试Android Framework？</a><br><a href="http://www.simlinux.com/archives/1689.html" target="_blank" rel="external">Android多渠道打包这样做才酸爽！？</a><br><a href="http://www.jianshu.com/p/7236ceca2630" target="_blank" rel="external">Gradle 多渠道打包实践</a><br><a href="https://codingstyle.cn/topics/178?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">闯过这 54 关，点亮你的 Git 技能树 (四)</a><br><a href="https://github.com/judasn/IntelliJ-IDEA-Tutorial" target="_blank" rel="external">IntelliJ IDEA 简体中文专题教程</a><br><a href="http://blog.jobbole.com/96088/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">日常使用 Git 的 19 个建议</a><br><a href="http://tianweishu.com/2015/12/21/android-studio-debug-tips-you-may-not-know/" target="_blank" rel="external">Android Studio你不知道的调试技巧</a><br><a href="http://tech.meituan.com/Android_unit_test.html?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">Android单元测试研究与实践</a><br><a href="http://www.codingstyle.cn/topics/51?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">闯过这 54 关，点亮你的 Git 技能树</a><br><a href="http://www.cnblogs.com/poe-blog/p/4728970.html" target="_blank" rel="external">android studio 64位手机+Fresco引起的在arm64位机器上找不到对应的so库</a><br><a href="http://blog.csdn.net/lihuapinghust/article/details/45825063" target="_blank" rel="external">Android Studio上打的包在arm64位机器上找不到对应的so库</a><br><a href="https://www.aswifter.com/2016/01/03/android-use-Espresso-ui-testing/" target="_blank" rel="external">Android中使用Espresso进行UI测试</a><br><a href="http://wustrive2008.github.io/2016/01/06/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B9%8B%E5%85%88%E7%94%A8%E8%B5%B7%E6%9D%A5/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">Git全解析之用起来先</a><br><a href="http://unclechen.github.io/2015/10/22/Android%20Studio%20Gradle%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%A4%9A%E6%B8%A0%E9%81%93%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85+%E7%89%88%E6%9C%AC%E5%8F%B7%E7%AE%A1%E7%90%86/" target="_blank" rel="external">Android Studio Gradle实践之多渠道自动化打包+版本号管理</a><br><a href="http://www.lcode.org/%E4%BC%98%E9%9B%85%E7%9A%84android-studio%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE-%E5%B8%B8%E7%94%A8%E5%BA%93%E5%92%8C%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" target="_blank" rel="external">优雅的Android Studio项目配置–常用库和版本管理</a><br><a href="http://waychel.com/shi-yong-android-studiocha-zhao-wen-jian-zhong-han-you-zhong-wen-zi-fu-chuan-wei-zhi/" target="_blank" rel="external">使用Android Studio查找文件中含有中文字符串位置</a><br><a href="https://docs.google.com/presentation/d/1Ilb3kBa8C7cArhu7-4TAsA-dDxFkvv9eRL7DC6H56sE/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g11baac1e97_0_155" target="_blank" rel="external">Android studio调试技巧</a><br><a href="http://www.race604.com/android-auto-version/" target="_blank" rel="external">更优雅的 Android 发布自动版本号方案</a><br><a href="http://toutiao.io/r/m5bvmz" target="_blank" rel="external">这些小工具让你的Android开发更高效</a><br><a href="http://www.jianshu.com/p/104fa8b15d1e" target="_blank" rel="external">企业级开发：Gitflow Workflow工作流</a><br><a href="https://github.com/gaohailang/blog/issues/9?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">如何在Github打造你的爆款开源项目</a><br><a href="http://email.mail.gank.io/c/eJwVjUsOwjAMBU_TLCPbMfkssqAg7uEmgRb6haJenyC92YxGejlySsZYNUQCtMDgwDCj0R4DkTaBvG45XMLVtg3DJMOoHzK_9LCoPhYi521nPLHcMYEHkAy5GCkuixQ1RUQMTF6Nsd_3tTHnhm51x3Ho5yDzp__qtEzVrJXsC7HrsLiO1DueEC2z81yft-3f_QALUjA7" target="_blank" rel="external">MAT使用入门</a><br><a href="http://email.mail.gank.io/c/eJwVjssOgyAURL9GlgS4Vx4LFrVN_wMvWGkVqvL_KU0mmTOrOdEjEYBm2SshtUBhBCBK4FY6pTg4ZfmE7u4eehpQ7CFv_BXKh-fKVi-AEpFJs4vWkbFkF-NCDGPCJQFGtnsppUNl2ebX1r4D3Ab17Jm3-uJ0xcJLan2vtbxDSZ3C2TJtf4qp9burUxcapbTATt9bIxqL3eY4ONX9B5W4N3U" target="_blank" rel="external">Android自动清理无用资源工具</a><br><a href="http://www.devstore.cn/essay/essayInfo/6102.html" target="_blank" rel="external">高效Android开发者必须知道的4个工具</a><br><a href="http://liukun.engineer/2016/04/10/Android-Studio-advanced-configuration/" target="_blank" rel="external">Android Studio 配置</a><br><a href="http://www.lightskystreet.com/2015/09/01/mat_usage/" target="_blank" rel="external">MAT - Memory Analyzer Tool 使用进阶</a></p>
+<h1 id="u5B66_u4E60"><a href="#u5B66_u4E60" class="headerlink" title="学习"></a>学习</h1><p><a href="http://email.mail.gank.io/c/eJwVjUsOwjAMBU_TLCPbcT5eZIFUcY80bWihXyjq9QnSzGb0pNdHztkYp6ZIgA4sOOCq0WIBvJYAgjq06A1x2zAsaZr1I60vPW1qjJlN5j4l9MGheLTOdSVI6TIJ9RLUEhFRmIKa43iee2NuDd0r13Xp55TWz_jVeVtq2aslFcwDDmSoU-9oER2zD1yfj-O_-wH3mzAE" target="_blank" rel="external">AndroidStudyDemo项目介绍</a><br><a href="http://segmentfault.com/a/1190000004268513" target="_blank" rel="external">Android程序员 如何入门iOS ——故事从这里开始</a><br><a href="http://www.androidweekly.cn/android-dev-special-weekly-react-native/" target="_blank" rel="external">Android开发技术周报特刊之React Native</a><br><a href="http://chinagdg.org/2016/01/%E7%94%9F%E8%BF%98%E6%98%AF%E6%AD%BB%EF%BC%9Fandroid-%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E8%AF%A6%E8%A7%A3/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">生还是死？Android 进程优先级详解</a><br><a href="https://github.com/wangjiegulu/kotlin-for-android-developers-zh" target="_blank" rel="external">Kotlin for android developers》中文版翻译</a><br><a href="https://github.com/smallSohoSolo/android-developer-blog-cn" target="_blank" rel="external">定期翻译Android官方博客</a><br><a href="https://github.com/Freelander/Android_Data" target="_blank" rel="external">android学习资料</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA4MTg4MjkzMw==&amp;mid=214243534&amp;idx=1&amp;sn=7e8afe532c7809dc1b27456516d42239&amp;scene=4#wechat_redirect" target="_blank" rel="external">10个很棒的学习Android 开发的网站</a><br><a href="http://lib.csdn.net/base/15/structure" target="_blank" rel="external">Android知识架构</a><br><a href="http://edu.csdn.net/course/detail/1923" target="_blank" rel="external">开发艺术视频</a><br><a href="http://diycode.cc/wiki/androidbook" target="_blank" rel="external">Android开发书籍推荐：从入门到精通系列学习路线书籍介绍</a><br><a href="http://diycode.cc/topics/122" target="_blank" rel="external">一个老鸟发的公司内部整理的 Android 学习路线图 Markdown 版本</a></p>
+<h1 id="u6570_u636E_u5E93"><a href="#u6570_u636E_u5E93" class="headerlink" title="数据库"></a>数据库</h1><p><a href="http://my.oschina.net/atearsan/blog/187226?fromerr=qCmwUhvO" target="_blank" rel="external">SQLite 大数据量 新增 / 修改 提升效率的办法</a><br><a href="http://www.cnblogs.com/liping13599168/archive/2011/05/24/2054908.html" target="_blank" rel="external">使用replace</a></p>
+<h1 id="u5B89_u5168"><a href="#u5B89_u5168" class="headerlink" title="安全"></a>安全</h1><p><a href="http://drops.wooyun.org/mobile/12172" target="_blank" rel="external">Android应用安全开发之源码安全</a><br><a href="http://drops.wooyun.org/mobile/12469" target="_blank" rel="external">Android应用安全开发之防范无意识的数据泄露</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTI4Nzk5Ng==&amp;mid=402506628&amp;idx=1&amp;sn=c5ae6457fa1e112a9b983d46da364125&amp;scene=1&amp;srcid=0329cJms84gOkOWU5y45vSNz&amp;key=710a5d99946419d905ed92f3d6b9c4e2eee8ac517149fdcefd791fbbbb0146dbed8b64ad34aa62bbc9e486eb24c3b03b&amp;ascene=0&amp;uin=MTYzMjY2MTE1&amp;devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.11.4+build(15E65" target="_blank" rel="external">Android应用安全开发之浅谈加密算法的坑</a>&amp;version=11020201&amp;pass_ticket=AOchp9l%2F7Ug8gVFlX0%2BK1tAyLOPwStguLTy4jV5RBLc%3D)<br><a href="https://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=2653576954&amp;idx=1&amp;sn=6826647df10da83c645b2c49cf1326a6&amp;scene=0&amp;key=b28b03434249256b44ee65d4569915ec0e351029da65164eb15145525d54520545ea9aaa618ac2acbc1cb13da8732576&amp;ascene=0&amp;uin=MTY5MDI4NDA4Mg%3D%3D&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.11.4+build%2815E65%29&amp;version=11020201&amp;pass_ticket=xhrhRgyx6brcoV5fHzprhLVH3zZgev4Gngfghh7S78ntItjTqkVo5kGUw%2BtmAxIY" target="_blank" rel="external">手把手教你逆向分析 Android 程序</a></p>
+<h1 id="u6D4B_u8BD5"><a href="#u6D4B_u8BD5" class="headerlink" title="测试"></a>测试</h1><p><a href="http://blog.chengdazhi.com/index.php/58" target="_blank" rel="external">测试技巧 – 你所不知道的测试黑科技</a><br><a href="http://www.jayfeng.com/2015/10/22/%E4%BD%BF%E7%94%A8jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BAandroid%E5%92%8Cios%E5%BA%94%E7%94%A8/" target="_blank" rel="external">[团队分享]使用jenkins自动化构建android和ios应用</a><br><a href="http://blog.zhaiyifan.cn/2016/02/23/world-class-testing-development-pipeline-for-android-part-1/" target="_blank" rel="external">世界级的Android测试开发流程（一）</a><br><a href="http://blog.zhaiyifan.cn/2016/02/23/world-class-testing-development-pipeline-for-android-part-2/" target="_blank" rel="external">世界级的Android测试开发流程（二）</a><br><a href="http://iceanson.github.io/Robolectric-%E6%8E%A2%E7%B4%A2%E4%B9%8B%E8%B7%AF" target="_blank" rel="external">Roboletric探索之路，从抗拒到依赖</a><br><a href="http://sixwolf.net/blog/2016/04/12/Android%E4%BD%BF%E7%94%A8Travis-CI%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%BB%A5%E5%8F%8A%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E5%8F%AF%E8%A7%86%E5%8C%96/" target="_blank" rel="external">Android持续集成以及测试覆盖率可视化</a></p>
+<h1 id="sdk"><a href="#sdk" class="headerlink" title="sdk"></a>sdk</h1><p><a href="https://www.sdk.cn/" target="_blank" rel="external">sdk</a></p>
+<h1 id="u9002_u914D-1"><a href="#u9002_u914D-1" class="headerlink" title="适配"></a>适配</h1><p><a href="https://github.com/riskers/blog/issues/18" target="_blank" rel="external">移动端适配方案(下)</a></p>
+<h1 id="u7BA1_u7406"><a href="#u7BA1_u7406" class="headerlink" title="管理"></a>管理</h1><p><a href="http://www.jianshu.com/p/be0d9c0908f2" target="_blank" rel="external">第三篇：规范开发篇</a><br><a href="http://www.jayfeng.com/2016/01/06/%E5%A6%82%E4%BD%95%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AAAndroid%E5%BA%94%E7%94%A8/#more" target="_blank" rel="external">团队分享]如何更好的开发一个Android应用</a><br><a href="http://keeganlee.me/post/android/20150709" target="_blank" rel="external">Android技术积累:开发规范</a><br><a href="http://toutiao.io/r/15xg4z" target="_blank" rel="external">聊聊创业团队的项目管理如何面向开发人员优化</a><br><a href="http://email.mail.gank.io/c/eJwVjUkOwjAQBF8TH62Z8Xg7-ICU8A9jO8SQFYLyfRKp61IqqXPglJQyogYCNMCggdgqJZHIsUTFDqTRbdfdWm4YplhH-YzzW9ZFDCGXXAiLsQaKIt8nV2ImbUuybCM-xBQQ0TM5MYZh39dG3Rq6nzuOQ75qnL_DT6ZlOs16AtE77r332pP4BI1omK27nrft6v45YjAN" target="_blank" rel="external">Android 编码规范</a><br><a href="http://t.cn/RqcUJvl" target="_blank" rel="external">Android技术积累:开发规范</a></p>
+<p><a href="http://weekly.manong.io/bounce?url=http%3A%2F%2Fblog.12xiaoshi.com%2F2016%2F03%2F31%2Ftech%2Fapi-constraint_design%2F&amp;aid=5789&amp;nid=112" target="_blank" rel="external">客户端API请求规范</a><br><a href="http://aotu.io/notes/2016/03/31/readable/" target="_blank" rel="external">提升代码的可读性系列(一)–基础篇</a><br><a href="http://www.iteye.com/news/31540" target="_blank" rel="external">API返回结果设计经验与总结</a></p>
+<h1 id="Reactnative"><a href="#Reactnative" class="headerlink" title="Reactnative"></a>Reactnative</h1><p><a href="http://www.lcode.org/%E5%8F%B2%E4%B8%8A%E6%9C%80%E8%AF%A6%E7%BB%86windows%E7%89%88%E6%9C%AC%E6%90%AD%E5%BB%BA%E5%AE%89%E8%A3%85react-native%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">史上最详细Windows版本搭建安装React Native环境配置</a><br><a href="https://github.com/vczero/react-native-lesson" target="_blank" rel="external">React-Native入门指南</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=2651112392&amp;idx=1&amp;sn=135e29ddde3050d469be98db815c267e&amp;scene=23&amp;srcid=0618cOTwQLFp5GtYc6Nh3NFY#rd" target="_blank" rel="external">React Native 开发之 IDE 选型和配置</a></p>
+<h1 id="kotlin"><a href="#kotlin" class="headerlink" title="kotlin"></a>kotlin</h1><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=401833091&amp;idx=1&amp;sn=9685218eeac4abfbafdfacd81950bfa1" target="_blank" rel="external">kotlin学习资源整理</a><br><a href="https://github.com/wangjiegulu/kotlin-for-android-developers-zh/blob/master/SUMMARY.md" target="_blank" rel="external">Kotlin for android developers</a><br><a href="http://cirorizzo.net/2016/03/04/building-a-kotlin-project/?utm_source=Android+Weekly&amp;utm_campaign=36def426b1-Android_Weekly_195&amp;utm_medium=email&amp;utm_term=0_4eb677ad19-36def426b1-337851685" target="_blank" rel="external">Building a Kotlin project 1/2</a><br><a href="http://www.cirorizzo.net/2016/03/04/building-a-kotlin-project-2/?utm_source=Android+Weekly&amp;utm_campaign=36def426b1-Android_Weekly_195&amp;utm_medium=email&amp;utm_term=0_4eb677ad19-36def426b1-337851685" target="_blank" rel="external">Building a Kotlin project 2/2</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&amp;mid=403568637&amp;idx=1&amp;sn=e6edfa6ef2029e0f6c1892ed7d2611d2#rd" target="_blank" rel="external">实战Kotlin@Andorid（二）：界面构建与扩展方法</a></p>
+<h1 id="u7B80_u5386"><a href="#u7B80_u5386" class="headerlink" title="简历"></a>简历</h1><p><a href="http://www.devstore.cn/essay/essayInfo/5557.html" target="_blank" rel="external">程序员，你的简历应该这样弄</a><br><a href="https://zhuanlan.zhihu.com/p/20832703?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">我敢保证，面试官想在简历里看到的其实是这些</a></p>
+<h1 id="u7F51_u7AD9"><a href="#u7F51_u7AD9" class="headerlink" title="网站"></a>网站</h1><p><a href="http://doc.star7th.com/index.php/" target="_blank" rel="external">在线 API 文档、技术文档工具 ShowDoc  </a></p>
+<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="http://email.mail.gank.io/c/eJwVzrkOgzAQBNCvwaW1u14fFC6QIP9hbHMoHAHc5O_jSFO8qWaS5xiVMmL1BGiAQQOxVUoikWOJih1Io_th6HpuGPawbnIOx1uup1g8B5MhkYXWKoiEYM1Ik55ianWaAordI2LL5MTml1I-jeoaetWM2znL-KRDHrnUHpd8PM-3KtxljVuuSrnUuacKyWlHxorba0TDbN3_zXXJeO4_Pwc2vQ" target="_blank" rel="external"> java提高篇（四）—–抽象类与接口</a><br><a href="http://www.jianshu.com/p/b8197dd2934c" target="_blank" rel="external">线程、多线程与线程池总结</a><br><a href="http://www.techug.com/distance" target="_blank" rel="external">你离顶尖Java程序员，只差这11本书的距离</a><br><a href="http://www.jianshu.com/p/24820bf3df5c" target="_blank" rel="external">反射、注解与依赖注入总结</a><br><a href="http://www.jasongj.com/design_pattern/summary/" target="_blank" rel="external">Java设计模式（十三） 别人再问你设计模式，叫他看这篇文章</a></p>
+<h1 id="u5185_u5B58_u4F18_u5316"><a href="#u5185_u5B58_u4F18_u5316" class="headerlink" title="内存优化"></a>内存优化</h1><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0920/3478.html" target="_blank" rel="external">Android内存优化之OOM</a><br><a href="https://yq.aliyun.com/articles/3009" target="_blank" rel="external">Android 内存泄漏总结</a></p>
+<h1 id="u4EA7_u54C1"><a href="#u4EA7_u54C1" class="headerlink" title="产品"></a>产品</h1><p><a href="http://www.devstore.cn/essay/essayInfo/6155.html" target="_blank" rel="external">产品经理信息收集渠道大盘点</a></p>
+<h1 id="u5F00_u6E90_u9879_u76EE-1"><a href="#u5F00_u6E90_u9879_u76EE-1" class="headerlink" title="开源项目"></a>开源项目</h1><p><a href="http://community.easemob.com/article/825307813" target="_blank" rel="external">13个开源项目集体登场，这是一场开源的技术盛宴！</a></p>
+<h1 id="u6E90_u7801_u89E3_u6790"><a href="#u6E90_u7801_u89E3_u6790" class="headerlink" title="源码解析"></a>源码解析</h1><p><a href="http://richardcao.me/2016/05/29/Retrofit2%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89/#rd?sukey=3903d1d3b699c208a9af3b8823b70de84413507b803150dd0f296f6c031ebc7def38bd4d6b99092a304d4b4926fd6e63" target="_blank" rel="external">Retrofit2源码分析（一）</a><br><a href="http://blog.csdn.net/luoyanglizi/article/details/51510233" target="_blank" rel="external"> 由浅入深全面剖析ThreadLocal</a><br><a href="http://gityuan.com/2016/05/28/android-jni/" target="_blank" rel="external">Android JNI原理分析</a><br><a href="https://github.com/xdtianyu/SourceAnalysis/blob/master/Binder%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md" target="_blank" rel="external">Binder 源码分析</a><br><a href="https://github.com/asLody/SourceAnalysis/blob/master/Service%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md" target="_blank" rel="external">Service源码解析</a><br><a href="http://www.jianshu.com/p/385327e35711" target="_blank" rel="external">Android 深入理解Loader机制 让APP轻装上阵</a><br><a href="http://gityuan.com/2016/05/28/android-jni/" target="_blank" rel="external">Android JNI原理分析</a></p>
+<h1 id="Agera"><a href="#Agera" class="headerlink" title="Agera"></a>Agera</h1><p><a href="https://github.com/captain-miao/AndroidAgeraTutorial/wiki" target="_blank" rel="external">Agera Wiki 中文版</a></p>
+<h1 id="Dagger2"><a href="#Dagger2" class="headerlink" title="Dagger2"></a>Dagger2</h1><p><a href="http://www.androidchina.net/4624.html" target="_blank" rel="external">Dagger 2: Step To Step</a></p>
+<p>TODO 新技术<br>1.kotlin<br>2.Reace Native<br>3.swift<br>4.agera<br>5.databinding</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/09/17/LayoutAnimation动画使用/" rel="prev">LayoutAnimation动画使用</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/09/05/android-M-新特性之权限管理/" rel="next">android M 新特性之权限管理</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/09/08/Android开发技巧/"
+                   data-title="android开发技巧" data-url="http://chaowen.coding.me/selfimgrhexo/2015/09/08/Android开发技巧/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7fvi21.com1.z0.glb.clouddn.com/avatar.jpg" alt="selfimpr" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">selfimpr</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/selfimgrhexo/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UI_u6280_u5DE7"><span class="nav-number">1.</span> <span class="nav-text">UI技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5173_u4E8ERadioButton_setCheck_u65B9_u6CD5_u7684_u95EE_u9898"><span class="nav-number">1.1.</span> <span class="nav-text">关于RadioButton setCheck方法的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4EE3_u7801_u4F18_u5316"><span class="nav-number">2.</span> <span class="nav-text">代码优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android_studio_u6559_u7A0B"><span class="nav-number">3.</span> <span class="nav-text">Android studio教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RxJava__u6559_u7A0B"><span class="nav-number">4.</span> <span class="nav-text">RxJava 教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Handler"><span class="nav-number">5.</span> <span class="nav-text">Handler</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Adapter"><span class="nav-number">6.</span> <span class="nav-text">Adapter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5F00_u6E90_u9879_u76EE"><span class="nav-number">7.</span> <span class="nav-text">开源项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8BBE_u8BA1_u5E08"><span class="nav-number">8.</span> <span class="nav-text">设计师</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E66"><span class="nav-number">9.</span> <span class="nav-text">书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u539F_u7406"><span class="nav-number">10.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4F18_u5316"><span class="nav-number">11.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u63D0_u9AD8"><span class="nav-number">12.</span> <span class="nav-text">提高</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u65B0_u7279_u6027"><span class="nav-number">13.</span> <span class="nav-text">新特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u67B6_u6784"><span class="nav-number">14.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u9002_u914D"><span class="nav-number">15.</span> <span class="nav-text">适配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u535A_u5BA2"><span class="nav-number">16.</span> <span class="nav-text">博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5B98_u65B9_u5B66_u4E60_u7F51_u7AD9/Wiki"><span class="nav-number">17.</span> <span class="nav-text">官方学习网站/Wiki</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u9762_u8BD5_u9898"><span class="nav-number">18.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5F00_u53D1_u5DE5_u5177"><span class="nav-number">19.</span> <span class="nav-text">开发工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5B66_u4E60"><span class="nav-number">20.</span> <span class="nav-text">学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6570_u636E_u5E93"><span class="nav-number">21.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5B89_u5168"><span class="nav-number">22.</span> <span class="nav-text">安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6D4B_u8BD5"><span class="nav-number">23.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sdk"><span class="nav-number">24.</span> <span class="nav-text">sdk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u9002_u914D-1"><span class="nav-number">25.</span> <span class="nav-text">适配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7BA1_u7406"><span class="nav-number">26.</span> <span class="nav-text">管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reactnative"><span class="nav-number">27.</span> <span class="nav-text">Reactnative</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kotlin"><span class="nav-number">28.</span> <span class="nav-text">kotlin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7B80_u5386"><span class="nav-number">29.</span> <span class="nav-text">简历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7F51_u7AD9"><span class="nav-number">30.</span> <span class="nav-text">网站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java"><span class="nav-number">31.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5185_u5B58_u4F18_u5316"><span class="nav-number">32.</span> <span class="nav-text">内存优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4EA7_u54C1"><span class="nav-number">33.</span> <span class="nav-text">产品</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5F00_u6E90_u9879_u76EE-1"><span class="nav-number">34.</span> <span class="nav-text">开源项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6E90_u7801_u89E3_u6790"><span class="nav-number">35.</span> <span class="nav-text">源码解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Agera"><span class="nav-number">36.</span> <span class="nav-text">Agera</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dagger2"><span class="nav-number">37.</span> <span class="nav-text">Dagger2</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">selfimpr</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chaowen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/selfimgrhexo/js/ua-parser.min.js"></script>
+  	<script src="/selfimgrhexo/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/selfimgrhexo/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/selfimgrhexo/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/selfimgrhexo/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/selfimgrhexo/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/selfimgrhexo/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Rxjava," />
+
+
+
+  <link rel="alternate" href="/selfimgrhexo/atom.xml" title="Android难民" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="RxJava与众不同之处从纯Java的观点看，RxJava Observable类源自于经典的Gang Of Four的观察者模式。
+它添加了三个缺少的功能：
+
+生产者在没有更多数据可用时能够发出信号通知：onCompleted()事件。
+生产者在发生错误时能够发出信号通知：onError()事件。
+RxJava Observables 能够组合而不是嵌套，从而避免开发者陷入回调地狱。
+
+四种角色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rxjava学习教程">
+<meta property="og:url" content="http://chaowen.coding.me/selfimgrhexo/2015/10/15/Rxjava学习教程/index.html">
+<meta property="og:site_name" content="Android难民">
+<meta property="og:description" content="RxJava与众不同之处从纯Java的观点看，RxJava Observable类源自于经典的Gang Of Four的观察者模式。
+它添加了三个缺少的功能：
+
+生产者在没有更多数据可用时能够发出信号通知：onCompleted()事件。
+生产者在发生错误时能够发出信号通知：onError()事件。
+RxJava Observables 能够组合而不是嵌套，从而避免开发者陷入回调地狱。
+
+四种角色">
+<meta property="og:image" content="http://i.imgur.com/fer9igK.png">
+<meta property="og:updated_time" content="2016-06-16T13:58:03.975Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rxjava学习教程">
+<meta name="twitter:description" content="RxJava与众不同之处从纯Java的观点看，RxJava Observable类源自于经典的Gang Of Four的观察者模式。
+它添加了三个缺少的功能：
+
+生产者在没有更多数据可用时能够发出信号通知：onCompleted()事件。
+生产者在发生错误时能够发出信号通知：onError()事件。
+RxJava Observables 能够组合而不是嵌套，从而避免开发者陷入回调地狱。
+
+四种角色">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always'
+  };
+</script>
+
+  <title> Rxjava学习教程 | Android难民 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/selfimgrhexo/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Android难民</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Rxjava学习教程
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-15T17:14:23+08:00" content="2015-10-15">
+            2015-10-15
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/selfimgrhexo/categories/java/" itemprop="url" rel="index">
+                  <span itemprop="name">java</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/selfimgrhexo/2015/10/15/Rxjava学习教程/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/Rxjava学习教程/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="RxJava_u4E0E_u4F17_u4E0D_u540C_u4E4B_u5904"><a href="#RxJava_u4E0E_u4F17_u4E0D_u540C_u4E4B_u5904" class="headerlink" title="RxJava与众不同之处"></a>RxJava与众不同之处</h1><p>从纯Java的观点看，RxJava Observable类源自于经典的Gang Of Four的观察者模式。</p>
+<p>它添加了三个缺少的功能：</p>
+<ul>
+<li>生产者在没有更多数据可用时能够发出信号通知：onCompleted()事件。</li>
+<li>生产者在发生错误时能够发出信号通知：onError()事件。</li>
+<li>RxJava Observables 能够组合而不是嵌套，从而避免开发者陷入回调地狱。</li>
+</ul>
+<h1 id="u56DB_u79CD_u89D2_u8272"><a href="#u56DB_u79CD_u89D2_u8272" class="headerlink" title="四种角色"></a>四种角色</h1><ul>
+<li>Observable</li>
+<li>Observer</li>
+<li>Subscriber</li>
+<li>Subjects<br>Observables和Subjects是两个”生产”实体,Observers和Subscribers是两个”消费”实体</li>
+</ul>
+<h1 id="u6982_u5FF5"><a href="#u6982_u5FF5" class="headerlink" title="概念"></a>概念</h1><p>RxJava 有四个基本概念：<code>Observable</code> (可观察者，即被观察者)、 <code>Observer</code> (观察者)、 <code>subscribe</code> (订阅)、事件。<code>Observable</code> 和 <code>Observer</code> 通过 <code>subscribe()</code>方法实现订阅关系，从而 Observable 可以在需要的时候发出事件来通知 <code>Observer</code></p>
+<a id="more"></a>
+<p>与传统观察者模式不同， RxJava 的事件回调方法除了普通事件 onNext() （相当于 onClick() / onEvent()）之外，还定义了两个特殊的事件：<code>onCompleted()</code> 和 <code>onError()</code></p>
+<ul>
+<li>onCompleted(): 事件队列完结。RxJava 不仅把每个事件单独处理，还会把它们看做一个队列。RxJava 规定，当不会再有新的 onNext() 发出时，需要触发 onCompleted() 方法作为标志。</li>
+<li>onError(): 事件队列异常。在事件处理过程中出异常时，onError() 会被触发，同时队列自动终止，不允许再有事件发出。</li>
+<li>在一个正确运行的事件序列中, onCompleted() 和 onError() 有且只有一个，并且是事件序列中的最后一个。需要注意的是，onCompleted() 和 onError() 二者也是互斥的，即在队列中调用了其中一个，就不应该再调用另一个。</li>
+</ul>
+<p>RxJava 的观察者模式大致如下图：</p>
+<p><img src="http://i.imgur.com/fer9igK.png" alt=""></p>
+<h1 id="u57FA_u672C_u5B9E_u73B0"><a href="#u57FA_u672C_u5B9E_u73B0" class="headerlink" title="基本实现"></a>基本实现</h1><h2 id="u521B_u5EFAObserver"><a href="#u521B_u5EFAObserver" class="headerlink" title="创建Observer"></a>创建Observer</h2><p>Observer 即观察者，它决定事件触发的时候将有怎样的行为。 RxJava 中的 Observer 接口的实现方式：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Observer&lt;<span class="built_in">String</span>&gt; observer = <span class="literal">new</span> Observer&lt;<span class="built_in">String</span>&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onNext(<span class="built_in">String</span> s) &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Item: "</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onCompleted() &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Completed!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onErr<span class="subst">or</span>(Throwable e) &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Error!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>除了 Observer 接口之外，RxJava 还内置了一个实现了 Observer 的抽象类：<code>Subscriber</code>。 <code>Subscriber</code> 对 <code>Observer</code> 接口进行了一些扩展，但他们的基本使用方式是完全一样的：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Subscriber&lt;<span class="built_in">String</span>&gt; subscriber = <span class="literal">new</span> Subscriber&lt;<span class="built_in">String</span>&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onNext(<span class="built_in">String</span> s) &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Item: "</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onCompleted() &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Completed!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onErr<span class="subst">or</span>(Throwable e) &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Error!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><code>onStart()</code>: 这是 <code>Subscriber</code> 增加的方法。它会在 subscribe 刚开始，而事件还未发送之前被调用，可以用于做一些准备工作，例如数据的清零或重置。这是一个可选方法，默认情况下它的实现为空。需要注意的是，如果对准备工作的线程有要求（例如弹出一个显示进度的对话框，这必须在主线程执行）， <code>onStart()</code> 就不适用了，因为它总是在 <code>subscribe</code> 所发生的线程被调用，而不能指定线程。要在指定的线程来做准备工作，可以使用 <code>doOnSubscribe()</code> 方法，具体可以在后面的文中看到。</li>
+<li><code>unsubscribe()</code>: 这是 <code>Subscriber</code> 所实现的另一个接口 <code>Subscription</code> 的方法，用于取消订阅。在这个方法被调用后，<code>Subscriber</code> 将不再接收事件。一般在这个方法调用前，可以使用 <code>isUnsubscribed()</code> 先判断一下状态。 <code>unsubscribe()</code> 这个方法很重要，因为在 <code>subscribe()</code> 之后， <code>Observable</code> 会持有 <code>Subscriber</code> 的引用，这个引用如果不能及时被释放，将有内存泄露的风险。所以最好保持一个原则：要在不再使用的时候尽快在合适的地方（例如 <code>onPause()</code> <code>onStop()</code> 等方法中）调用 <code>unsubscribe()</code> 来解除引用关系，以避免内存泄露的发生。</li>
+</ol>
+<h2 id="u521B_u5EFA_Observable"><a href="#u521B_u5EFA_Observable" class="headerlink" title="创建 Observable"></a>创建 Observable</h2><p>Observable 即被观察者，它决定什么时候触发事件以及触发怎样的事件。 RxJava 使用 create() 方法来创建一个 Observable ，并为它定义事件触发规则：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Observable observable = Observable.create(<span class="keyword">new</span> Observable.OnSubscribe&lt;String&gt;() &#123;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber&lt;? <span class="keyword">super</span> String&gt; subscriber)</span> </span>&#123;</span><br><span class="line">        subscriber.onNext(<span class="string">"Hello"</span>);</span><br><span class="line">        subscriber.onNext(<span class="string">"Hi"</span>);</span><br><span class="line">        subscriber.onNext(<span class="string">"Aloha"</span>);</span><br><span class="line">        subscriber.onCompleted();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>以看到，这里传入了一个 OnSubscribe 对象作为参数。OnSubscribe 会被存储在返回的 Observable 对象中，它的作用相当于一个计划表，当 Observable 被订阅的时候，OnSubscribe 的 call() 方法会自动被调用，事件序列就会依照设定依次触发（对于上面的代码，就是观察者Subscriber 将会被调用三次 onNext() 和一次 onCompleted()）。这样，由被观察者调用了观察者的回调方法，就实现了由被观察者向观察者的事件传递，即观察者模式。</p>
+<h2 id="Subscribe__28_u8BA2_u9605_29"><a href="#Subscribe__28_u8BA2_u9605_29" class="headerlink" title="Subscribe (订阅)"></a>Subscribe (订阅)</h2><p>创建了 Observable 和 Observer 之后，再用 subscribe() 方法将它们联结起来，整条链子就可以工作了。代码形式很简单：<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">observable.subscribe<span class="comment">(observer)</span>;</span><br><span class="line"><span class="comment">// 或者：</span></span><br><span class="line">observable.subscribe<span class="comment">(subscriber)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>有人可能会注意到， subscribe() 这个方法有点怪：它看起来是『observalbe 订阅了 observer / subscriber』而不是『observer / subscriber 订阅了 observalbe』，这看起来就像『杂志订阅了读者』一样颠倒了对象关系。这让人读起来有点别扭，不过如果把 API 设计成 observer.subscribe(observable) / subscriber.subscribe(observable) ，虽然更加符合思维逻辑，但对流式 API 的设计就造成影响了，比较起来明显是得不偿失的。</p>
+<h1 id="Android__u4E2D_u4F7F_u7528Lambda_u8868_u8FBE_u5F0F"><a href="#Android__u4E2D_u4F7F_u7528Lambda_u8868_u8FBE_u5F0F" class="headerlink" title="Android 中使用Lambda表达式"></a>Android 中使用Lambda表达式</h1><p>Android Studio默认使用Lambda表达式是会报错的，即使你使用的是java 8，为了在android studio中使用lambda表达式，我们必须借助一个插件retrolambda ，该插件将java 8中的lambda表达式特性兼容到java 5。使用它也很简单。</p>
+<p>首先先项目根目录下的build.gradle中加入</p>
+<p>   <code>classpath &#39;me.tatarka:gradle-retrolambda:3.2.0&#39;</code></p>
+<p>最终整个文件会像这样子<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">buildscript</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">dependencies</span> &#123;</span><br><span class="line">        <span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:1.2.3'</span></span><br><span class="line">        <span class="keyword">classpath</span> <span class="string">'me.tatarka:gradle-retrolambda:3.2.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">allprojects</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后再module目录下的build.gradle中使用插件，加入</p>
+<pre><code>apply plugin: &apos;me.tatarka.retrolambda&apos;
+</code></pre><p>并且在android节点下加入<br><figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="component">compileOptions &#123;</span><br><span class="line">        sourceCompatibility JavaVersion<span class="string">.VERSION_1_8</span></span><br><span class="line">        targetCompatibility JavaVersion<span class="string">.VERSION_1_8</span></span><br><span class="line">    &#125;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="u57FA_u672C_u4F7F_u7528"><a href="#u57FA_u672C_u4F7F_u7528" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="u521B_u5EFA_Observer"><a href="#u521B_u5EFA_Observer" class="headerlink" title="创建 Observer"></a>创建 Observer</h2><p>Observer 即观察者，它决定事件触发的时候将有怎样的行为。 RxJava 中的 Observer 接口的实现方式：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 创建观察者</span><br><span class="line">     */</span></span><br><span class="line">    Observer&lt;<span class="built_in">String</span>&gt; observer = <span class="literal">new</span> Observer&lt;<span class="built_in">String</span>&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="literal">void</span> onCompleted() &#123;</span><br><span class="line">            <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="string">"observer"</span>,<span class="string">"onCompleted "</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="literal">void</span> onErr<span class="subst">or</span>(Throwable e) &#123;</span><br><span class="line">            <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="string">"observer"</span>,<span class="string">"error "</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="literal">void</span> onNext(<span class="built_in">String</span> s) &#123;</span><br><span class="line">             <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="string">"observer"</span>,<span class="string">"Item: "</span> + s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>除了 Observer 接口之外，RxJava 还内置了一个实现了 Observer 的抽象类：<code>Subscriber</code>。 Subscriber 对 Observer 接口进行了一些扩展，但他们的基本使用方式是完全一样的：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Subscriber&lt;<span class="built_in">String</span>&gt; subscriber = <span class="literal">new</span> Subscriber&lt;<span class="built_in">String</span>&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onNext(<span class="built_in">String</span> s) &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Item: "</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onCompleted() &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Completed!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> onErr<span class="subst">or</span>(Throwable e) &#123;</span><br><span class="line">        <span class="keyword">Log</span><span class="built_in">.</span>d(<span class="built_in">tag</span>, <span class="string">"Error!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>不仅基本使用方式一样，实质上，在 RxJava 的 subscribe 过程中，Observer 也总是会先被转换成一个 Subscriber 再使用。所以如果你只想使用基本功能，选择 Observer 和 Subscriber 是完全一样的。它们的区别对于使用者来说主要有两点：</p>
+<p><code>onStart()</code>: 这是 Subscriber 增加的方法。它会在 subscribe 刚开始，而事件还未发送之前被调用，可以用于做一些准备工作，例如数据的清零或重置。这是一个可选方法，默认情况下它的实现为空。需要注意的是，如果对准备工作的线程有要求（例如弹出一个显示进度的对话框，这必须在主线程执行）， onStart() 就不适用了，因为它总是在 subscribe 所发生的线程被调用，而不能指定线程。要在指定的线程来做准备工作，可以使用 doOnSubscribe() 方法，具体可以在后面的文中看到。<br><code>unsubscribe()</code>: 这是 Subscriber 所实现的另一个接口 Subscription 的方法，用于取消订阅。在这个方法被调用后，Subscriber 将不再接收事件。一般在这个方法调用前，可以使用 isUnsubscribed() 先判断一下状态。 unsubscribe() 这个方法很重要，因为在 subscribe() 之后， Observable 会持有 Subscriber 的引用，这个引用如果不能及时被释放，将有内存泄露的风险。所以最好保持一个原则：要在不再使用的时候尽快在合适的地方（例如 onPause() onStop() 等方法中）调用 unsubscribe() 来解除引用关系，以避免内存泄露的发生。</p>
+<h2 id="u521B_u5EFA_Observable-1"><a href="#u521B_u5EFA_Observable-1" class="headerlink" title="创建 Observable"></a>创建 Observable</h2><p>Observable 即被观察者，它决定什么时候触发事件以及触发怎样的事件。 RxJava 使用 create() 方法来创建一个 Observable ，并为它定义事件触发规则：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Observable observable = Observable.create(<span class="keyword">new</span> Observable.OnSubscribe&lt;String&gt;() &#123;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber&lt;? <span class="keyword">super</span> String&gt; subscriber)</span> </span>&#123;</span><br><span class="line">        subscriber.onNext(<span class="string">"Hello"</span>);</span><br><span class="line">        subscriber.onNext(<span class="string">"Hi"</span>);</span><br><span class="line">        subscriber.onNext(<span class="string">"Aloha"</span>);</span><br><span class="line">        subscriber.onCompleted();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，这里传入了一个 OnSubscribe 对象作为参数。OnSubscribe 会被存储在返回的 Observable 对象中，它的作用相当于一个计划表，当 Observable 被订阅的时候，OnSubscribe 的 call() 方法会自动被调用，事件序列就会依照设定依次触发（对于上面的代码，就是观察者Subscriber 将会被调用三次 onNext() 和一次 onCompleted()）。这样，由被观察者调用了观察者的回调方法，就实现了由被观察者向观察者的事件传递，即观察者模式。</p>
+<h2 id="Subscribe__28_u8BA2_u9605_29-1"><a href="#Subscribe__28_u8BA2_u9605_29-1" class="headerlink" title="Subscribe (订阅)"></a>Subscribe (订阅)</h2><p>创建了 Observable 和 Observer 之后，再用 subscribe() 方法将它们联结起来，整条链子就可以工作了。代码形式很简单：<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">observable.subscribe<span class="comment">(observer)</span>;</span><br><span class="line"><span class="comment">// 或者：</span></span><br><span class="line">observable.subscribe<span class="comment">(subscriber)</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="u7B80_u6D01_u7684_u5199_u6CD5"><a href="#u7B80_u6D01_u7684_u5199_u6CD5" class="headerlink" title="简洁的写法"></a>简洁的写法</h2><h3 id="u7B80_u5316Observable__u4F7F_u7528just"><a href="#u7B80_u5316Observable__u4F7F_u7528just" class="headerlink" title="简化Observable 使用just"></a>简化Observable 使用just</h3><p><code>just(T...):</code>将传入的参数依次发送出来。<br><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typename">Observable</span> observable = <span class="typename">Observable</span>.just(<span class="string">"Hello"</span>, <span class="string">"Hi"</span>, <span class="string">"Aloha"</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="u7B80_u5316Subscriber_u4F7F_u7528Action1_u7C7B"><a href="#u7B80_u5316Subscriber_u4F7F_u7528Action1_u7C7B" class="headerlink" title="简化Subscriber使用Action1类"></a>简化Subscriber使用Action1类</h3><p>我们其实并不关心OnComplete和OnError，我们只需要在onNext的时候做一些处理，这时候就可以使用Action1类<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Action1&lt;<span class="keyword">String</span>&gt; onNextAction = <span class="keyword">new</span> Action1&lt;<span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">             System.out.<span class="built_in">println</span>(<span class="string">"action--"</span>+s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>最终完整的代码<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Observable.just(<span class="string">"Hello"</span>,<span class="string">"chaowen"</span>)</span><br><span class="line">               .subscribe(<span class="keyword">new</span> Action1&lt;<span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">                   @Override</span><br><span class="line">                   <span class="keyword">public</span> <span class="keyword">void</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">                       System.out.<span class="built_in">println</span>(s);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="u4F7F_u7528java8_u7684lambda_u53EF_u4EE5_u4F7F_u4EE3_u7801_u66F4_u7B80_u6D01"><a href="#u4F7F_u7528java8_u7684lambda_u53EF_u4EE5_u4F7F_u4EE3_u7801_u66F4_u7B80_u6D01" class="headerlink" title="使用java8的lambda可以使代码更简洁"></a>使用java8的lambda可以使代码更简洁</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>","<span class="tag">chaowen</span>")</span><br><span class="line">               <span class="class">.subscribe</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">s</span>));</span><br></pre></td></tr></table></figure>
+<h1 id="u64CD_u4F5C_u7B26"><a href="#u64CD_u4F5C_u7B26" class="headerlink" title="操作符"></a>操作符</h1><p> 操作符就是为了解决对Observable对象的变换的问题，操作符用于在Observable和最终的Subscriber之间修改Observable发出的事件。RxJava提供了很多很有用的操作符。</p>
+<h2 id="map_u64CD_u4F5C_u7B26_u7684_u4F7F_u7528"><a href="#map_u64CD_u4F5C_u7B26_u7684_u4F7F_u7528" class="headerlink" title="map操作符的使用"></a>map操作符的使用</h2><p>map操作符，就是用来把把一个事件转换为另一个事件的<br>以下代码演示如果在字符串新加字符<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>just(<span class="string">"Hello chaowen"</span>)</span><br><span class="line">                <span class="built_in">.</span><span class="built_in">map</span>(<span class="literal">new</span> Func1&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    <span class="keyword">public</span> <span class="built_in">String</span> call(<span class="built_in">String</span> s) &#123;</span><br><span class="line">                        <span class="keyword">return</span> s+<span class="string">"bifeng"</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                <span class="built_in">.</span>subscribe(s <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(s));</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span> <span class="tag">chaowen</span>")</span><br><span class="line">               <span class="class">.map</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">s</span>+"<span class="tag">bifeng</span>")</span><br><span class="line">               <span class="class">.subscribe</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">s</span>));</span><br></pre></td></tr></table></figure>
+<p>map操作符更有趣的一点是它不必返回Observable对象返回的类型，你可以使用map操作符返回一个发出新的数据类型的observable对象。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>just(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span><span class="built_in">map</span>(<span class="literal">new</span> Func1&lt;<span class="built_in">String</span>, <span class="built_in">Integer</span>&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">Integer</span> call(<span class="built_in">String</span> s) &#123;</span><br><span class="line">            <span class="keyword">return</span> s<span class="built_in">.</span>hashCode();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">.</span>subscribe(i <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(<span class="built_in">Integer</span><span class="built_in">.</span>toString(i)));</span><br></pre></td></tr></table></figure></p>
+<p>简化代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")  </span><br><span class="line">    <span class="class">.map</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">s</span><span class="class">.hashCode</span>())  </span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">i</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">Integer</span><span class="class">.toString</span>(<span class="tag">i</span>)));</span><br></pre></td></tr></table></figure>
+<h2 id="zip_u6570_u636E_u5408_u5E76_u64CD_u4F5C"><a href="#zip_u6570_u636E_u5408_u5E76_u64CD_u4F5C" class="headerlink" title="zip数据合并操作"></a>zip数据合并操作</h2><h1 id="u7B2C_u4E00_u4E2A_u4F8B_u5B50"><a href="#u7B2C_u4E00_u4E2A_u4F8B_u5B50" class="headerlink" title="第一个例子"></a>第一个例子</h1><p>RxAndroid的git地址： <a href="https://github.com/ReactiveX/RxAndroid" target="_blank" rel="external">https://github.com/ReactiveX/RxAndroid</a></p>
+<p>1.添加依赖<br>  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'io.reactivex:rxandroid:1.2.0'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'io.reactivex:rxjava:1.1.4'</span></span><br></pre></td></tr></table></figure></p>
+<p>2.在Android中使用Lambda表达式<br>   <a href="https://github.com/evant/gradle-retrolambda" target="_blank" rel="external">https://github.com/evant/gradle-retrolambda</a></p>
+<ol>
+<li><p>在项目的build.gradle文件中，加入</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">classpath</span> <span class="string">'me.tatarka:gradle-retrolambda:3.2.5'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在app的module下加入以下代码</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'me.tatarka.retrolambda'</span></span><br><span class="line"></span><br><span class="line">compileOptions &#123;</span><br><span class="line">        <span class="keyword">sourceCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">        <span class="keyword">targetCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>完整代码<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line">apply plugin: <span class="string">'me.tatarka.retrolambda'</span></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">23</span></span><br><span class="line">    buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"com.example.chaowen.hellorxjava"</span></span><br><span class="line">        minSdkVersion <span class="number">15</span></span><br><span class="line">        targetSdkVersion <span class="number">23</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled <span class="keyword">false</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    compileOptions &#123;</span><br><span class="line">        <span class="keyword">sourceCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">        <span class="keyword">targetCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23.1.1'</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'io.reactivex:rxandroid:1.2.0'</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'io.reactivex:rxjava:1.1.4'</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.jakewharton:butterknife:6.0.0'</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:support-annotations:23.1.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/lzyzsd/Awesome-RxJava" target="_blank" rel="external">https://github.com/lzyzsd/Awesome-RxJava</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/selfimgrhexo/tags/Rxjava/" rel="tag">#Rxjava</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/11/06/android-wear学习记录/" rel="prev">android wear学习记录</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/10/11/Material-design开发教程/" rel="next">Material design开发教程</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/10/15/Rxjava学习教程/"
+                   data-title="Rxjava学习教程" data-url="http://chaowen.coding.me/selfimgrhexo/2015/10/15/Rxjava学习教程/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7fvi21.com1.z0.glb.clouddn.com/avatar.jpg" alt="selfimpr" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">selfimpr</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/selfimgrhexo/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RxJava_u4E0E_u4F17_u4E0D_u540C_u4E4B_u5904"><span class="nav-number">1.</span> <span class="nav-text">RxJava与众不同之处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u56DB_u79CD_u89D2_u8272"><span class="nav-number">2.</span> <span class="nav-text">四种角色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6982_u5FF5"><span class="nav-number">3.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u57FA_u672C_u5B9E_u73B0"><span class="nav-number">4.</span> <span class="nav-text">基本实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u521B_u5EFAObserver"><span class="nav-number">4.1.</span> <span class="nav-text">创建Observer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u521B_u5EFA_Observable"><span class="nav-number">4.2.</span> <span class="nav-text">创建 Observable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Subscribe__28_u8BA2_u9605_29"><span class="nav-number">4.3.</span> <span class="nav-text">Subscribe (订阅)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android__u4E2D_u4F7F_u7528Lambda_u8868_u8FBE_u5F0F"><span class="nav-number">5.</span> <span class="nav-text">Android 中使用Lambda表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u57FA_u672C_u4F7F_u7528"><span class="nav-number">6.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u521B_u5EFA_Observer"><span class="nav-number">6.1.</span> <span class="nav-text">创建 Observer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u521B_u5EFA_Observable-1"><span class="nav-number">6.2.</span> <span class="nav-text">创建 Observable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Subscribe__28_u8BA2_u9605_29-1"><span class="nav-number">6.3.</span> <span class="nav-text">Subscribe (订阅)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7B80_u6D01_u7684_u5199_u6CD5"><span class="nav-number">6.4.</span> <span class="nav-text">简洁的写法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u7B80_u5316Observable__u4F7F_u7528just"><span class="nav-number">6.4.1.</span> <span class="nav-text">简化Observable 使用just</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7B80_u5316Subscriber_u4F7F_u7528Action1_u7C7B"><span class="nav-number">6.4.2.</span> <span class="nav-text">简化Subscriber使用Action1类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528java8_u7684lambda_u53EF_u4EE5_u4F7F_u4EE3_u7801_u66F4_u7B80_u6D01"><span class="nav-number">6.4.3.</span> <span class="nav-text">使用java8的lambda可以使代码更简洁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u64CD_u4F5C_u7B26"><span class="nav-number">7.</span> <span class="nav-text">操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#map_u64CD_u4F5C_u7B26_u7684_u4F7F_u7528"><span class="nav-number">7.1.</span> <span class="nav-text">map操作符的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip_u6570_u636E_u5408_u5E76_u64CD_u4F5C"><span class="nav-number">7.2.</span> <span class="nav-text">zip数据合并操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7B2C_u4E00_u4E2A_u4F8B_u5B50"><span class="nav-number">8.</span> <span class="nav-text">第一个例子</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">selfimpr</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chaowen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/selfimgrhexo/js/ua-parser.min.js"></script>
+  	<script src="/selfimgrhexo/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/selfimgrhexo/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/selfimgrhexo/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/selfimgrhexo/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/selfimgrhexo/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

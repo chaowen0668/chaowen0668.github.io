@@ -1,0 +1,698 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/selfimgrhexo/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/selfimgrhexo/atom.xml" title="Android难民" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="以下是我使用hexo的一些历程，搭建过程也挺纠结。网上的很多教程也有些是过时了。综合多方面的参考资料，才写下来这个教程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo使用手册">
+<meta property="og:url" content="http://chaowen.coding.me/selfimgrhexo/2015/12/30/hexo使用手册/index.html">
+<meta property="og:site_name" content="Android难民">
+<meta property="og:description" content="以下是我使用hexo的一些历程，搭建过程也挺纠结。网上的很多教程也有些是过时了。综合多方面的参考资料，才写下来这个教程。">
+<meta property="og:image" content="http://i.imgur.com/IKynifC.png">
+<meta property="og:image" content="http://i.imgur.com/2X1EUsV.png">
+<meta property="og:updated_time" content="2015-12-29T16:17:00.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo使用手册">
+<meta name="twitter:description" content="以下是我使用hexo的一些历程，搭建过程也挺纠结。网上的很多教程也有些是过时了。综合多方面的参考资料，才写下来这个教程。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always'
+  };
+</script>
+
+  <title> hexo使用手册 | Android难民 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/selfimgrhexo/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Android难民</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              hexo使用手册
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-12-30T00:17:00+08:00" content="2015-12-30">
+            2015-12-30
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/selfimgrhexo/categories/博客/" itemprop="url" rel="index">
+                  <span itemprop="name">博客</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/selfimgrhexo/2015/12/30/hexo使用手册/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/30/hexo使用手册/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>以下是我使用hexo的一些历程，搭建过程也挺纠结。网上的很多教程也有些是过时了。综合多方面的参考资料，才写下来这个教程。<br><a id="more"></a></p>
+<h1 id="Hexo_u7684_u5B89_u88C5"><a href="#Hexo_u7684_u5B89_u88C5" class="headerlink" title="Hexo的安装"></a>Hexo的安装</h1><h2 id="u5B89_u88C5_u8F6F_u4EF6_u4E0E_u914D_u7F6E"><a href="#u5B89_u88C5_u8F6F_u4EF6_u4E0E_u914D_u7F6E" class="headerlink" title="安装软件与配置"></a>安装软件与配置</h2><ol>
+<li>安装git 下载地址 git-scm.com/downloads</li>
+<li><p>安装note.js 下载地址 <a href="https://nodejs.org" target="_blank" rel="external">https://nodejs.org</a><br>注意:需要添加Path环境变量，使npm命令生效<br><code>;C:\Program Files\nodejs\node_modules\npm</code></p>
+<h2 id="u6CE8_u518Cgithub_u8D26_u53F7_u4E0E_u521B_u5EFAResposity"><a href="#u6CE8_u518Cgithub_u8D26_u53F7_u4E0E_u521B_u5EFAResposity" class="headerlink" title="注册github账号与创建Resposity"></a>注册github账号与创建Resposity</h2><h3 id="u6CE8_u518C_u8D26_u53F7"><a href="#u6CE8_u518C_u8D26_u53F7" class="headerlink" title="注册账号"></a>注册账号</h3><p>忽略</p>
+<h3 id="u521B_u5EFAResposity"><a href="#u521B_u5EFAResposity" class="headerlink" title="创建Resposity"></a>创建Resposity</h3><p>创建的时候注意Repository的名字。比如我的Github账号是chaowen0668，那么我应该创建的Repository的名字是：chaowen0668.github.io。注意要勾选生成README文件<br><img src="http://i.imgur.com/IKynifC.png" alt=""></p>
+<h2 id="u5B89_u88C5npm_u4E0E_u63D2_u4EF6"><a href="#u5B89_u88C5npm_u4E0E_u63D2_u4EF6" class="headerlink" title="安装npm与插件"></a>安装npm与插件</h2><h3 id="u628A_u521B_u5EFA_u7684Repository_u514B_u9686_u5230_u672C_u5730"><a href="#u628A_u521B_u5EFA_u7684Repository_u514B_u9686_u5230_u672C_u5730" class="headerlink" title="把创建的Repository克隆到本地"></a>把创建的Repository克隆到本地</h3><h3 id="u5B89_u88C5npm"><a href="#u5B89_u88C5npm" class="headerlink" title="安装npm"></a>安装npm</h3><p> npm install -g hexo<br> hexo init<br> npm install</p>
+<h3 id="u672C_u5730_u67E5_u770B"><a href="#u672C_u5730_u67E5_u770B" class="headerlink" title="本地查看"></a>本地查看</h3><p>执行以下命令，然后运行localhost:4000浏览  </p>
+<p> hexo generate<br> hexo server</p>
+<h3 id="u5B89_u88C5_u63D2_u4EF6"><a href="#u5B89_u88C5_u63D2_u4EF6" class="headerlink" title="安装插件"></a>安装插件</h3><p> npm install hexo-generator-index –save<br> npm install hexo-generator-archive –save<br> npm install hexo-generator-category –save<br> npm install hexo-generator-tag –save<br> npm install hexo-server –save<br> npm install hexo-deployer-git –save<br> npm install hexo-deployer-heroku –save<br> npm install hexo-deployer-rsync –save<br> npm install hexo-deployer-openshift –save<br> npm install hexo-renderer-marked@0.2 –save<br> npm install hexo-renderer-stylus@0.2 –save<br> npm install hexo-generator-feed@1 –save<br> npm install hexo-generator-sitemap@1 –save</p>
+<h2 id="u4FEE_u6539_u914D_u7F6E_u6587_u4EF6_config-yml"><a href="#u4FEE_u6539_u914D_u7F6E_u6587_u4EF6_config-yml" class="headerlink" title="修改配置文件_config.yml"></a>修改配置文件_config.yml</h2><p> deploy:<br>   type: git<br>   repository: <a href="https://github.com/chaowen0668/chaowen0668.github.io.git" target="_blank" rel="external">https://github.com/chaowen0668/chaowen0668.github.io.git</a><br>   branch: master</p>
+</li>
+</ol>
+<h2 id="u914D_u7F6Essh"><a href="#u914D_u7F6Essh" class="headerlink" title="配置ssh"></a>配置ssh</h2><h1 id="hexo_u7684_u4F18_u5316"><a href="#hexo_u7684_u4F18_u5316" class="headerlink" title="hexo的优化"></a>hexo的优化</h1><h2 id="u4E3B_u9875_u6587_u7AE0_u663E_u793A_u6458_u8981"><a href="#u4E3B_u9875_u6587_u7AE0_u663E_u793A_u6458_u8981" class="headerlink" title="主页文章显示摘要"></a>主页文章显示摘要</h2><p>编辑md文件的时候，在要作为摘要的文字后面添加<!--more-->即可.</p>
+<h2 id="u521B_u5EFA_u5206_u7C7B_u9875_u9762"><a href="#u521B_u5EFA_u5206_u7C7B_u9875_u9762" class="headerlink" title="创建分类页面"></a>创建分类页面</h2><p>添加一个 分类 页面，并在菜单中显示页面链接。  </p>
+<ol>
+<li>新建一个页面，命名为 categories 。命令如下：<br><code>hexo new page categories</code></li>
+<li><p>编辑刚新建的页面，将页面的类型设置为 categories ，主题将自动为这个页面显示所有分类.<br> <code>type: &quot;categories&quot;</code>  </p>
+<p>注意：如果有启用多说 或者 Disqus 评论，默认页面也会带有评论。需要关闭的话，请添加字段 comments 并将值设置为 false，如：  </p>
+<p> title: 分类<br> date: 2014-12-22 12:39:04<br> type: “categories”<br> comments: false<br>3.在菜单中添加链接。编辑主题的 _config.yml ，将 menu 中的   <code>categories: /categories</code> 注释去掉，如下:</p>
+<pre><code>menu:
+home: /
+categories: /categories
+archives: /archives
+tags: /tags
+</code></pre><h2 id="u8BBE_u7F6E_u4FA7_u8FB9_u680F_u5934_u50CF"><a href="#u8BBE_u7F6E_u4FA7_u8FB9_u680F_u5934_u50CF" class="headerlink" title="设置侧边栏头像"></a>设置侧边栏头像</h2><p>编辑站点的 _config.yml，新增字段 avatar， 值设置成头像的链接地址。<br>其中，头像的链接地址可以是：  </p>
+</li>
+<li>完整的互联网 URL，例如：<br> <code>http://test.com1.z0.glb.clouddn.com/avatar.jpg</code></li>
+</ol>
+<p>2.站点内的地址，例如：  </p>
+<ul>
+<li><code>/uploads/avatar.jpg</code> 需要将你的头像图片放置在 站点的 <code>source/uploads/</code>（可能需要新建uploads目录）  </li>
+<li><code>/images/avatar.jpg</code> 需要将你的头像图片放置在 主题的 <code>source/images/</code> 目录下。</li>
+</ul>
+<h2 id="u521B_u5EFA_u5173_u4E8E_u9875_u9762"><a href="#u521B_u5EFA_u5173_u4E8E_u9875_u9762" class="headerlink" title="创建关于页面"></a>创建关于页面</h2><p>新建一个 about 页面：<br>    <code>hexo new page &quot;about&quot;</code>  </p>
+<p>菜单显示 about 链接，在主题的 _configy.yml 设置中将 menu 中 about 前面的注释去掉即可。</p>
+<pre><code>menu:
+home: /
+archives: /archives
+tags: /tags
+about: /about
+</code></pre><h2 id="u8BBE_u7F6E_u591A_u8BF4_u8BC4_u8BBA"><a href="#u8BBE_u7F6E_u591A_u8BF4_u8BC4_u8BBA" class="headerlink" title="设置多说评论"></a>设置多说评论</h2><p>添加 多说 或者 Disqus 第三方评论系统。当同时设置了 多说 和 Disqus 时，优先选择多说。  </p>
+<ol>
+<li><p>使用多说前需要先在 多说 创建一个站点。具体步骤如下：  </p>
+<ul>
+<li>登录后在首页选择 “我要安装”。</li>
+<li>创建站点，填写站点相关信息。注意，多说域名 这一栏填写的即是你的<code>duoshuo_shortname</code></li>
+</ul>
+</li>
+<li><p>编辑站点的<code>_config.yml</code> 注意，不是主题的<code>_config.yml</code>文件 ，添加 <code>duoshuo_shortname</code> 字段，设置如下</p>
+<p> <code>duoshuo_shortname: your-duoshuo-shortname</code>  </p>
+</li>
+</ol>
+<p>（注）duoshuo short name: 你的多说二级域名去掉 .duoshuo.com 部分</p>
+<h2 id="u7ED1_u5B9A_u57DF_u540D"><a href="#u7ED1_u5B9A_u57DF_u540D" class="headerlink" title="绑定域名"></a>绑定域名</h2><ol>
+<li><p>修改你的域名提供商上的DNS解析，我用了DNSPOD<br>域名DNS修改帮助 <a href="https://support.dnspod.cn/Kb/guide/" target="_blank" rel="external">https://support.dnspod.cn/Kb/guide/</a>  </p>
+</li>
+<li><p>DNSPod上设置github的ip<br>github的两个ip地址是<code>192.30.252.153</code> 和<code>192.30.252.154</code><br>然后在DNSPod设置域名，如下<br><img src="http://i.imgur.com/2X1EUsV.png" alt="">  </p>
+</li>
+<li>在hexo博客设置CNAME<br>在博客源文件<code>./source</code>下创建一个文件名是<code>CNAME</code>的文本文件，该文件内容只有一行，就是你注册的域名。<br>如 <code>94ifeng.com</code></li>
+</ol>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/selfimgrhexo/2016/05/16/Android源码分析/" rel="prev"></a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/11/24/学习Retrofit笔记/" rel="next">学习Retrofit笔记</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/12/30/hexo使用手册/"
+                   data-title="hexo使用手册" data-url="http://chaowen.coding.me/selfimgrhexo/2015/12/30/hexo使用手册/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7fvi21.com1.z0.glb.clouddn.com/avatar.jpg" alt="selfimpr" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">selfimpr</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/selfimgrhexo/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo_u7684_u5B89_u88C5"><span class="nav-number">1.</span> <span class="nav-text">Hexo的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5_u8F6F_u4EF6_u4E0E_u914D_u7F6E"><span class="nav-number">1.1.</span> <span class="nav-text">安装软件与配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u518Cgithub_u8D26_u53F7_u4E0E_u521B_u5EFAResposity"><span class="nav-number">1.2.</span> <span class="nav-text">注册github账号与创建Resposity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6CE8_u518C_u8D26_u53F7"><span class="nav-number">1.2.1.</span> <span class="nav-text">注册账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u521B_u5EFAResposity"><span class="nav-number">1.2.2.</span> <span class="nav-text">创建Resposity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5npm_u4E0E_u63D2_u4EF6"><span class="nav-number">1.3.</span> <span class="nav-text">安装npm与插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u628A_u521B_u5EFA_u7684Repository_u514B_u9686_u5230_u672C_u5730"><span class="nav-number">1.3.1.</span> <span class="nav-text">把创建的Repository克隆到本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5npm"><span class="nav-number">1.3.2.</span> <span class="nav-text">安装npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u672C_u5730_u67E5_u770B"><span class="nav-number">1.3.3.</span> <span class="nav-text">本地查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5_u63D2_u4EF6"><span class="nav-number">1.3.4.</span> <span class="nav-text">安装插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4FEE_u6539_u914D_u7F6E_u6587_u4EF6_config-yml"><span class="nav-number">1.4.</span> <span class="nav-text">修改配置文件_config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u914D_u7F6Essh"><span class="nav-number">1.5.</span> <span class="nav-text">配置ssh</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo_u7684_u4F18_u5316"><span class="nav-number">2.</span> <span class="nav-text">hexo的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E3B_u9875_u6587_u7AE0_u663E_u793A_u6458_u8981"><span class="nav-number">2.1.</span> <span class="nav-text">主页文章显示摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u521B_u5EFA_u5206_u7C7B_u9875_u9762"><span class="nav-number">2.2.</span> <span class="nav-text">创建分类页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8BBE_u7F6E_u4FA7_u8FB9_u680F_u5934_u50CF"><span class="nav-number">2.3.</span> <span class="nav-text">设置侧边栏头像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u521B_u5EFA_u5173_u4E8E_u9875_u9762"><span class="nav-number">2.4.</span> <span class="nav-text">创建关于页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8BBE_u7F6E_u591A_u8BF4_u8BC4_u8BBA"><span class="nav-number">2.5.</span> <span class="nav-text">设置多说评论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7ED1_u5B9A_u57DF_u540D"><span class="nav-number">2.6.</span> <span class="nav-text">绑定域名</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">selfimpr</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chaowen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/selfimgrhexo/js/ua-parser.min.js"></script>
+  	<script src="/selfimgrhexo/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/selfimgrhexo/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/selfimgrhexo/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/selfimgrhexo/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/selfimgrhexo/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

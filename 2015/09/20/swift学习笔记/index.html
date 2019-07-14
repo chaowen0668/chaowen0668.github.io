@@ -1,0 +1,695 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/selfimgrhexo/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/selfimgrhexo/atom.xml" title="Android难民" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="我的学习swift历程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift学习笔记">
+<meta property="og:url" content="http://chaowen.coding.me/selfimgrhexo/2015/09/20/swift学习笔记/index.html">
+<meta property="og:site_name" content="Android难民">
+<meta property="og:description" content="我的学习swift历程">
+<meta property="og:updated_time" content="2015-12-29T16:17:00.521Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift学习笔记">
+<meta name="twitter:description" content="我的学习swift历程">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always'
+  };
+</script>
+
+  <title> swift学习笔记 | Android难民 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/selfimgrhexo/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Android难民</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              swift学习笔记
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-20T07:56:48+08:00" content="2015-09-20">
+            2015-09-20
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/selfimgrhexo/categories/ios/" itemprop="url" rel="index">
+                  <span itemprop="name">ios</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/selfimgrhexo/2015/09/20/swift学习笔记/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/20/swift学习笔记/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>我的学习swift历程<br><a id="more"></a></p>
+<h1 id="u8BED_u6CD5_u57FA_u7840"><a href="#u8BED_u6CD5_u57FA_u7840" class="headerlink" title="语法基础"></a>语法基础</h1><h2 id="u53EF_u9009_u7C7B_u578B_28Optional_29_u62C6_u5305_u548C_u7ED1_u5B9A"><a href="#u53EF_u9009_u7C7B_u578B_28Optional_29_u62C6_u5305_u548C_u7ED1_u5B9A" class="headerlink" title="可选类型(Optional)拆包和绑定"></a>可选类型(Optional)拆包和绑定</h2><h3 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h3><p>  使用可选类型来处理值可能缺失的情况</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> num</span> = <span class="string">"123"</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> convertnum</span>:<span class="typename">Int</span>? = num.toInt()</span><br></pre></td></tr></table></figure>
+<p>注意 nil 不能用于非可选的常量和亦是。如果你的代码有常量或者变量需要处理值缺失的问题，请把它们声明成对应的可选类型。</p>
+<h3 id="if_u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790"><a href="#if_u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790" class="headerlink" title="if语句以及强制解析"></a>if语句以及强制解析</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> num</span> = <span class="string">"123"</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> convertnum</span>:<span class="typename">Int</span>? = num.toInt()</span><br><span class="line"><span class="keyword">if</span> convertnum != nil &#123;</span><br><span class="line"> println(<span class="string">"\(convertnum!)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当你确定可选类型确实包含值之后，可以在可选的名字后面加一个!来获取值。这叫强制解析。</p>
+<p>注意 使用!来获取一个不存在的可选值会导致运行时的错误，使用!来强制解析值之前，一定要确定可选包含一个非nil的值。</p>
+<h3 id="u53EF_u9009_u7ED1_u5B9A"><a href="#u53EF_u9009_u7ED1_u5B9A" class="headerlink" title="可选绑定"></a>可选绑定</h3><p>使用可选绑定来判断可选类型是否包含值，如果包含值就把值赋给一个常量或变量。可选绑定可以用在if和while语句中对可选类型的值进行判断并把值赋给一个常量或变量。</p>
+<p><code>if let b = convertnum {
+ println(&quot;b=\(b)&quot;)
+}</code></p>
+<p>如果转换成功，b常量可以在if语句中的第一个分支中使用。它已经被可选类型包含的值初始化过，所以不需要再使用!后缀来获取它的值。</p>
+<h3 id="u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B"><a href="#u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B" class="headerlink" title="隐式解析可选类型"></a>隐式解析可选类型</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> num</span> = <span class="string">"123"</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> convertnum</span>:<span class="typename">Int</span>! = num.toInt()</span><br><span class="line"><span class="keyword">if</span> convertnum != nil &#123;</span><br><span class="line"> println(<span class="string">"\(convertnum)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把想要用作可选类型的后面的？改成感叹号来声明一个隐式解析可选类型。</p>
+<h3 id="u65AD_u8A00"><a href="#u65AD_u8A00" class="headerlink" title="断言"></a>断言</h3><p>断言会在运行时判断一个逻辑条件是否为true。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let age = -<span class="number">3</span></span><br><span class="line"><span class="function"><span class="title">assert</span><span class="params">(age &gt;= <span class="number">0</span>,<span class="string">"A person age cannot be less than zero"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>在这个例子中，只有age 》=0为true时，即age的值不为负的时候，代码才会继续招待。如果为负，断言被触发，终止应用。</p>
+<h1 id="u5B57_u7B26_u4E32"><a href="#u5B57_u7B26_u4E32" class="headerlink" title="字符串"></a>字符串</h1><h2 id="u5B57_u7B26_u4E32_u5B57_u9762_u91CF"><a href="#u5B57_u7B26_u4E32_u5B57_u9762_u91CF" class="headerlink" title="字符串字面量"></a>字符串字面量</h2><p> 字符串字面量可以用于为常量和变量提供初始值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> someString = <span class="string">"Some string literal value"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u521D_u59CB_u5316_u7A7A_u5B57_u7B26_u4E32"><a href="#u521D_u59CB_u5316_u7A7A_u5B57_u7B26_u4E32" class="headerlink" title="初始化空字符串"></a>初始化空字符串</h2><p>要创建一个空字符串作为初始值，可以将空的字符串字面量赋值给变量，也可以初始化一个新的String实例：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> emptyString = <span class="string">""</span>               <span class="comment">// 空字符串字面量</span></span><br><span class="line"><span class="tag">var</span> anotherEmptyString = <span class="function"><span class="title">String</span><span class="params">()</span></span>  <span class="comment">// 初始化方法</span></span><br><span class="line"><span class="comment">// 两个字符串均为空并等价。</span></span><br></pre></td></tr></table></figure></p>
+<p>您可以通过检查其<code>Boolean</code>类型的<code>isEmpty</code>属性来判断该字符串是否为空：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> emptyString.isEmpty &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Nothing to see here"</span>)</span><br><span class="line">&#125;</span><br><span class="line">// 打印输出：<span class="string">"Nothing to see here"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u5B57_u7B26_u4E32_u53EF_u53D8_u6027"><a href="#u5B57_u7B26_u4E32_u53EF_u53D8_u6027" class="headerlink" title="字符串可变性"></a>字符串可变性</h2><p>您可以通过将一个特定字符串分配给一个变量来对其进行修改，或者分配给一个常量来保证其不会被修改：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> variableString = <span class="string">"Horse"</span></span><br><span class="line">variableString += <span class="string">" and carriage"</span></span><br><span class="line"><span class="comment">// variableString 现在为 "Horse and carriage"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> constantString = <span class="string">"Highlander"</span></span><br><span class="line">constantString += <span class="string">" and another Highlander"</span></span><br><span class="line"><span class="comment">// 这会报告一个编译错误 (compile-time error) - 常量字符串不可以被修改。</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u5B57_u7B26_u4E32_u662F_u503C_u7C7B_u578B"><a href="#u5B57_u7B26_u4E32_u662F_u503C_u7C7B_u578B" class="headerlink" title="字符串是值类型"></a>字符串是值类型</h2><p>Swift 的String类型是值类型。 如果您创建了一个新的字符串，那么当其进行常量、变量赋值操作，或在函数/方法中传递时，会进行值拷贝。 任何情况下，都会对已有字符串值创建新副本，并对该新副本进行传递或赋值操作。 值类型在 结构体和枚举是值类型 中进行了详细描述。</p>
+<h2 id="u4F7F_u7528_u5B57_u7B26"><a href="#u4F7F_u7528_u5B57_u7B26" class="headerlink" title="使用字符"></a>使用字符</h2><p>您可通过<code>for-in</code>循环来遍历字符串中的<code>characters</code>属性来获取每一个字符的值：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="keyword">character</span> <span class="operator">in</span> <span class="string">"Dog!🐶"</span>.<span class="keyword">characters</span> &#123;</span><br><span class="line">    print(<span class="keyword">character</span>)</span><br><span class="line">&#125;<span class="comment"></span><br><span class="line">// D</span><span class="comment"></span><br><span class="line">// o</span><span class="comment"></span><br><span class="line">// g</span><span class="comment"></span><br><span class="line">// !</span><span class="comment"></span><br><span class="line">// 🐶</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u8FDE_u63A5_u5B57_u7B26_u4E32_u548C_u5B57_u7B26"><a href="#u8FDE_u63A5_u5B57_u7B26_u4E32_u548C_u5B57_u7B26" class="headerlink" title="连接字符串和字符"></a>连接字符串和字符</h2><p>字符串可以通过加法运算符（+）相加在一起（或称“连接”）创建一个新的字符串：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">let</span> <span class="keyword">string1 </span>= <span class="string">"hello"</span></span><br><span class="line"><span class="label">let</span> <span class="keyword">string2 </span>= <span class="string">" there"</span></span><br><span class="line"><span class="label">var</span> welcome = <span class="keyword">string1 </span>+ <span class="keyword">string2</span><br><span class="line"></span>// welcome 现在等于 <span class="string">"hello there"</span></span><br></pre></td></tr></table></figure></p>
+<p>您也可以通过加法赋值运算符 (+=) 将一个字符串添加到一个已经存在字符串变量上：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> instruction</span> = <span class="string">"look over"</span></span><br><span class="line">instruction += string2</span><br><span class="line"><span class="comment">// instruction 现在等于 "look over there"</span></span><br></pre></td></tr></table></figure></p>
+<p>您可以用append()方法将一个字符附加到一个字符串变量的尾部：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let exclamationMark: Character = <span class="string">"!"</span></span><br><span class="line">welcome.<span class="function"><span class="title">append</span><span class="params">(exclamationMark)</span></span></span><br><span class="line"><span class="comment">// welcome 现在等于 "hello there!"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u5B57_u7B26_u4E32_u63D2_u503C"><a href="#u5B57_u7B26_u4E32_u63D2_u503C" class="headerlink" title="字符串插值"></a>字符串插值</h2><p>字符串插值是一种构建新字符串的方式，可以在其中包含常量、变量、字面量和表达式。 您插入的字符串字面量的每一项都在以反斜线为前缀的圆括号中：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> multiplier = <span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> message = <span class="string">"<span class="subst">\(multiplier)</span> times 2.5 is <span class="subst">\(Double(multiplier)</span> * 2.5)"</span></span><br><span class="line"><span class="comment">// message is "3 times 2.5 is 7.5"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u5B57_u7B26_u4E32_u7D22_u5F15"><a href="#u5B57_u7B26_u4E32_u7D22_u5F15" class="headerlink" title="字符串索引"></a>字符串索引</h2><h2 id="u63D2_u5165_u548C_u5220_u9664"><a href="#u63D2_u5165_u548C_u5220_u9664" class="headerlink" title="插入和删除"></a>插入和删除</h2><h2 id="u6BD4_u8F83_u5B57_u7B26_u4E32"><a href="#u6BD4_u8F83_u5B57_u7B26_u4E32" class="headerlink" title="比较字符串"></a>比较字符串</h2><h1 id="u96C6_u5408"><a href="#u96C6_u5408" class="headerlink" title="集合"></a>集合</h1><p>Swift语言提供Arrays,Sets和Dictionaries三种基本集合类型来存储集合数据。数组是有序数据的，集合是无序无重复数据的，字典是无序的键值对的集合。</p>
+<h2 id="u6570_u7EC4"><a href="#u6570_u7EC4" class="headerlink" title="数组"></a>数组</h2><p>数据使用有序列表存储同一类型的多个值。</p>
+<h3 id="u521B_u5EFA_u4E00_u4E2A_u7A7A_u6570_u636E"><a href="#u521B_u5EFA_u4E00_u4E2A_u7A7A_u6570_u636E" class="headerlink" title="创建一个空数据"></a>创建一个空数据</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var somelnts = [<span class="link_label">Int</span>](<span class="link_url"></span>)</span><br><span class="line">println("\(somelnts.count)items")</span><br></pre></td></tr></table></figure>
+<h3 id="u521B_u5EFA_u4E00_u4E2A_u5E26_u6709_u9ED8_u8BA4_u503C_u7684_u6570_u7EC4"><a href="#u521B_u5EFA_u4E00_u4E2A_u5E26_u6709_u9ED8_u8BA4_u503C_u7684_u6570_u7EC4" class="headerlink" title="创建一个带有默认值的数组"></a>创建一个带有默认值的数组</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var threeDoubles = [<span class="link_label">Double</span>](<span class="link_url">count: 3, repeatedValue: 1.0</span>)</span><br><span class="line">println(threeDoubles)</span><br></pre></td></tr></table></figure>
+<h3 id="u5B57_u9762_u91CF_u521B_u5EFA_u6570_u7EC4"><a href="#u5B57_u9762_u91CF_u521B_u5EFA_u6570_u7EC4" class="headerlink" title="字面量创建数组"></a>字面量创建数组</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> shoppingList: [<span class="built_in">String</span>] = [<span class="string">"Eggs"</span>,<span class="string">"Milk"</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="u6570_u7EC4_u7684_u904D_u5386"><a href="#u6570_u7EC4_u7684_u904D_u5386" class="headerlink" title="数组的遍历"></a>数组的遍历</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="property">item</span> <span class="keyword">in</span> shoppingList&#123;</span><br><span class="line">   print(<span class="property">item</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u96C6_u5408-1"><a href="#u96C6_u5408-1" class="headerlink" title="集合"></a>集合</h2><p>集合(Set)用来存储相同类型并且没有确定顺序的值。</p>
+<h3 id="u521B_u5EFA_u548C_u6784_u9020_u4E00_u4E2A_u7A7A_u7684_u96C6_u5408"><a href="#u521B_u5EFA_u548C_u6784_u9020_u4E00_u4E2A_u7A7A_u7684_u96C6_u5408" class="headerlink" title="创建和构造一个空的集合"></a>创建和构造一个空的集合</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> letters = Set&lt;Character&gt;()<span class="function"><span class="title">print</span><span class="params">(<span class="string">"letters is of type Set&lt;Character&gt; with \(letters.count) items."</span>)</span></span> </span><br><span class="line"><span class="comment">// 打印 "letters is of type Set&lt;Character&gt; with 0 items."</span></span><br></pre></td></tr></table></figure>
+<h3 id="u7528_u6570_u7EC4_u5B57_u9762_u91CF_u521B_u5EFA_u96C6_u5408"><a href="#u7528_u6570_u7EC4_u5B57_u9762_u91CF_u521B_u5EFA_u96C6_u5408" class="headerlink" title="用数组字面量创建集合"></a>用数组字面量创建集合</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> favoriteGenres: <span class="built_in">Set</span>&lt;<span class="built_in">String</span>&gt; = [<span class="string">"Rock"</span>, <span class="string">"Classical"</span>, <span class="string">"Hip hop"</span>] </span><br><span class="line"><span class="comment">// favoriteGenres 被构造成含有三个初始值的集合</span></span><br></pre></td></tr></table></figure>
+<h2 id="u5B57_u5178"><a href="#u5B57_u5178" class="headerlink" title="字典"></a>字典</h2><h3 id="u521B_u5EFA_u4E00_u4E2A_u7A7A_u5B57_u5178"><a href="#u521B_u5EFA_u4E00_u4E2A_u7A7A_u5B57_u5178" class="headerlink" title="创建一个空字典"></a>创建一个空字典</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var namesOfIntegers = [<span class="link_label">Int: String</span>](<span class="link_url"></span>)// namesOfIntegers 是一个空的 [Int: String] 字典</span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">namesOfIntegers<span class="string">[16]</span> = <span class="string">"sixteen"</span>// namesOfIntegers 现在包含一个键值对 namesOfIntegers = <span class="string">[:]</span>// namesOfIntegers 又成为了一个 <span class="string">[Int: String]</span> 类型的空字典</span><br></pre></td></tr></table></figure>
+<h3 id="u7528_u5B57_u5178_u5B57_u9762_u91CF_u521B_u5EFA_u5B57_u5178"><a href="#u7528_u5B57_u5178_u5B57_u9762_u91CF_u521B_u5EFA_u5B57_u5178" class="headerlink" title="用字典字面量创建字典"></a>用字典字面量创建字典</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> airports: [<span class="built_in">String</span>: <span class="built_in">String</span>] = [<span class="string">"YYZ"</span>: <span class="string">"Toronto Pearson"</span>, <span class="string">"DUB"</span>: <span class="string">"Dublin"</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="u51FD_u6570"><a href="#u51FD_u6570" class="headerlink" title="函数"></a>函数</h1><h2 id="u51FD_u6570_u7684_u5B9A_u4E49_u4E0E_u8C03_u7528"><a href="#u51FD_u6570_u7684_u5B9A_u4E49_u4E0E_u8C03_u7528" class="headerlink" title="函数的定义与调用"></a>函数的定义与调用</h2><p>在下面的例子中函数叫sayHello,定义了一个输入参数叫personName的String值，和一个String类型的返回值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName:String)</span></span> -&gt;<span class="type">String</span>&#123;</span><br><span class="line">   <span class="keyword">let</span> greeting = <span class="string">"Hello"</span> + personName</span><br><span class="line">    <span class="keyword">return</span> greeting</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以func作为前缀，指定函数的返回类型时，用返回箭头-&gt;后跟返回类型的名称来表示。</p>
+<h2 id="u51FD_u6570_u53C2_u6570_u4E0E_u8FD4_u56DE_u503C"><a href="#u51FD_u6570_u53C2_u6570_u4E0E_u8FD4_u56DE_u503C" class="headerlink" title="函数参数与返回值"></a>函数参数与返回值</h2><h3 id="u591A_u91CD_u8F93_u5165_u53C2_u6570"><a href="#u591A_u91CD_u8F93_u5165_u53C2_u6570" class="headerlink" title="多重输入参数"></a>多重输入参数</h3><p>函数可以有多个输入参数，写在圆括号中</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func halfOpenRangeLenght(<span class="operator"><span class="keyword">start</span>:<span class="built_in">Int</span>,<span class="keyword">end</span>:<span class="built_in">Int</span>)-&gt;<span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">end</span>-<span class="keyword">start</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="u65E0_u53C2_u51FD_u6570"><a href="#u65E0_u53C2_u51FD_u6570" class="headerlink" title="无参函数"></a>无参函数</h3><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHelloWorld</span><span class="params">()</span>-&gt;<span class="title">String</span>&#123;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">"Hello"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u591A_u53C2_u91CF_u51FD_u6570"><a href="#u591A_u53C2_u91CF_u51FD_u6570" class="headerlink" title="多参量函数"></a>多参量函数</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName:String)</span></span>-&gt;<span class="type">String</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"Hello"</span>+personName</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName:String,alreadyGreeted:Bool)</span></span>-&gt;<span class="type">String</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> alreadyGreeted&#123;</span><br><span class="line">       <span class="keyword">return</span> sayHello(personName)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> sayHello(personName)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u65E0_u8FD4_u56DE_u503C_u51FD_u6570"><a href="#u65E0_u8FD4_u56DE_u503C_u51FD_u6570" class="headerlink" title="无返回值函数"></a>无返回值函数</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayGoodbye</span><span class="params">(personName:String)</span></span>&#123;</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"GoodBye"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u591A_u91CD_u8FD4_u56DE_u503C_u51FD_u6570"><a href="#u591A_u91CD_u8FD4_u56DE_u503C_u51FD_u6570" class="headerlink" title="多重返回值函数"></a>多重返回值函数</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">minMax</span><span class="params">(array:[Int])</span></span>-&gt;(<span class="built_in">min</span>:<span class="type">Int</span>,<span class="built_in">max</span>:<span class="type">Int</span>)&#123;</span><br><span class="line">   <span class="keyword">var</span> currentMin = array[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">var</span> currentMax = array[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> value <span class="keyword">in</span> array[<span class="number">1</span>..&lt;array.<span class="built_in">count</span>]&#123;</span><br><span class="line">        <span class="keyword">if</span> value &lt; currentMin &#123;</span><br><span class="line">            currentMin = value</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> value &gt; currentMax &#123;</span><br><span class="line">            currentMax = value</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> (currentMin,currentMax)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bounds = minMax([<span class="number">8</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">79</span>])</span><br><span class="line"><span class="built_in">println</span>(<span class="string">"min is <span class="subst">\(bounds.<span class="built_in">min</span>)</span> and max is <span class="subst">\(bounds.<span class="built_in">max</span>)</span>"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="u95ED_u5305"><a href="#u95ED_u5305" class="headerlink" title="闭包"></a>闭包</h1><p>函数介绍的全局和嵌套函数实际上也是特殊的闭包,闭包采取如下三种形式之一:</p>
+<ul>
+<li>全局函数是一个有名字但不会捕获任何值的闭包</li>
+<li>嵌套函数是一个有名字并可以捕获其封闭函数域内值的闭包</li>
+<li>闭包表达式是一个利用轻量级语法所写的可以捕获其上下文中变量或常量值的匿名闭包</li>
+</ul>
+<p>其实闭包就是函数的简写形式。</p>
+<h1 id="u679A_u4E3E"><a href="#u679A_u4E3E" class="headerlink" title="枚举"></a>枚举</h1><h2 id="u679A_u4E3E_u8BED_u6CD5"><a href="#u679A_u4E3E_u8BED_u6CD5" class="headerlink" title="枚举语法"></a>枚举语法</h2><p>使用enum关键字来创建枚举并且把它们的整个定义放在一对大括号内:</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span> &#123;</span></span><br><span class="line">   <span class="keyword">case</span> <span class="constant">North</span></span><br><span class="line">   <span class="keyword">case</span> <span class="constant">South</span></span><br><span class="line">   <span class="keyword">case</span> <span class="constant">East</span></span><br><span class="line">   <span class="keyword">case</span> <span class="constant">West</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>多个成员值可以出现在同一行上，用逗号分开</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span> &#123;</span><span class="keyword">case</span> <span class="constant">Mercury</span>, <span class="constant">Venus</span>, <span class="constant">Earth</span>, <span class="constant">Mars</span>, <span class="constant">Jupiter</span>, <span class="constant">Saturn</span>, <span class="constant">Uranus</span>, <span class="constant">Neptune</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u5339_u914D_u679A_u4E3E_u503C_u548C_Switch__u8BED_u53E5"><a href="#u5339_u914D_u679A_u4E3E_u503C_u548C_Switch__u8BED_u53E5" class="headerlink" title="匹配枚举值和 Switch 语句"></a>匹配枚举值和 Switch 语句</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> direction = CompassPoint.East</span><br><span class="line"><span class="keyword">switch</span> direction&#123;</span><br><span class="line">   <span class="keyword">case</span> .North:</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"north"</span>)</span><br><span class="line">   <span class="keyword">case</span> .South:</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"south"</span>)</span><br><span class="line">    <span class="keyword">case</span> .East:</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"east"</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"default"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/09/24/Android自定义控件学习/" rel="prev">Android自定义控件学习</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/selfimgrhexo/2015/09/17/LayoutAnimation动画使用/" rel="next">LayoutAnimation动画使用</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/09/20/swift学习笔记/"
+                   data-title="swift学习笔记" data-url="http://chaowen.coding.me/selfimgrhexo/2015/09/20/swift学习笔记/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7fvi21.com1.z0.glb.clouddn.com/avatar.jpg" alt="selfimpr" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">selfimpr</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/selfimgrhexo/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u8BED_u6CD5_u57FA_u7840"><span class="nav-number">1.</span> <span class="nav-text">语法基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u53EF_u9009_u7C7B_u578B_28Optional_29_u62C6_u5305_u548C_u7ED1_u5B9A"><span class="nav-number">1.1.</span> <span class="nav-text">可选类型(Optional)拆包和绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nil"><span class="nav-number">1.1.1.</span> <span class="nav-text">nil</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if_u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790"><span class="nav-number">1.1.2.</span> <span class="nav-text">if语句以及强制解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u53EF_u9009_u7ED1_u5B9A"><span class="nav-number">1.1.3.</span> <span class="nav-text">可选绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B"><span class="nav-number">1.1.4.</span> <span class="nav-text">隐式解析可选类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u65AD_u8A00"><span class="nav-number">1.1.5.</span> <span class="nav-text">断言</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5B57_u7B26_u4E32"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u4E32_u5B57_u9762_u91CF"><span class="nav-number">2.1.</span> <span class="nav-text">字符串字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u521D_u59CB_u5316_u7A7A_u5B57_u7B26_u4E32"><span class="nav-number">2.2.</span> <span class="nav-text">初始化空字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u4E32_u53EF_u53D8_u6027"><span class="nav-number">2.3.</span> <span class="nav-text">字符串可变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u4E32_u662F_u503C_u7C7B_u578B"><span class="nav-number">2.4.</span> <span class="nav-text">字符串是值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528_u5B57_u7B26"><span class="nav-number">2.5.</span> <span class="nav-text">使用字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8FDE_u63A5_u5B57_u7B26_u4E32_u548C_u5B57_u7B26"><span class="nav-number">2.6.</span> <span class="nav-text">连接字符串和字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u4E32_u63D2_u503C"><span class="nav-number">2.7.</span> <span class="nav-text">字符串插值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u4E32_u7D22_u5F15"><span class="nav-number">2.8.</span> <span class="nav-text">字符串索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u63D2_u5165_u548C_u5220_u9664"><span class="nav-number">2.9.</span> <span class="nav-text">插入和删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6BD4_u8F83_u5B57_u7B26_u4E32"><span class="nav-number">2.10.</span> <span class="nav-text">比较字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u96C6_u5408"><span class="nav-number">3.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6570_u7EC4"><span class="nav-number">3.1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u521B_u5EFA_u4E00_u4E2A_u7A7A_u6570_u636E"><span class="nav-number">3.1.1.</span> <span class="nav-text">创建一个空数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u521B_u5EFA_u4E00_u4E2A_u5E26_u6709_u9ED8_u8BA4_u503C_u7684_u6570_u7EC4"><span class="nav-number">3.1.2.</span> <span class="nav-text">创建一个带有默认值的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B57_u9762_u91CF_u521B_u5EFA_u6570_u7EC4"><span class="nav-number">3.1.3.</span> <span class="nav-text">字面量创建数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6570_u7EC4_u7684_u904D_u5386"><span class="nav-number">3.1.4.</span> <span class="nav-text">数组的遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u96C6_u5408-1"><span class="nav-number">3.2.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u521B_u5EFA_u548C_u6784_u9020_u4E00_u4E2A_u7A7A_u7684_u96C6_u5408"><span class="nav-number">3.2.1.</span> <span class="nav-text">创建和构造一个空的集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7528_u6570_u7EC4_u5B57_u9762_u91CF_u521B_u5EFA_u96C6_u5408"><span class="nav-number">3.2.2.</span> <span class="nav-text">用数组字面量创建集合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u5178"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u521B_u5EFA_u4E00_u4E2A_u7A7A_u5B57_u5178"><span class="nav-number">3.3.1.</span> <span class="nav-text">创建一个空字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7528_u5B57_u5178_u5B57_u9762_u91CF_u521B_u5EFA_u5B57_u5178"><span class="nav-number">3.3.2.</span> <span class="nav-text">用字典字面量创建字典</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u51FD_u6570"><span class="nav-number">4.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u51FD_u6570_u7684_u5B9A_u4E49_u4E0E_u8C03_u7528"><span class="nav-number">4.1.</span> <span class="nav-text">函数的定义与调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u51FD_u6570_u53C2_u6570_u4E0E_u8FD4_u56DE_u503C"><span class="nav-number">4.2.</span> <span class="nav-text">函数参数与返回值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u591A_u91CD_u8F93_u5165_u53C2_u6570"><span class="nav-number">4.2.1.</span> <span class="nav-text">多重输入参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u65E0_u53C2_u51FD_u6570"><span class="nav-number">4.2.2.</span> <span class="nav-text">无参函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u591A_u53C2_u91CF_u51FD_u6570"><span class="nav-number">4.2.3.</span> <span class="nav-text">多参量函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u65E0_u8FD4_u56DE_u503C_u51FD_u6570"><span class="nav-number">4.2.4.</span> <span class="nav-text">无返回值函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u591A_u91CD_u8FD4_u56DE_u503C_u51FD_u6570"><span class="nav-number">4.2.5.</span> <span class="nav-text">多重返回值函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u95ED_u5305"><span class="nav-number">5.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u679A_u4E3E"><span class="nav-number">6.</span> <span class="nav-text">枚举</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u679A_u4E3E_u8BED_u6CD5"><span class="nav-number">6.1.</span> <span class="nav-text">枚举语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5339_u914D_u679A_u4E3E_u503C_u548C_Switch__u8BED_u53E5"><span class="nav-number">6.2.</span> <span class="nav-text">匹配枚举值和 Switch 语句</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">selfimpr</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chaowen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/selfimgrhexo/js/ua-parser.min.js"></script>
+  	<script src="/selfimgrhexo/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/selfimgrhexo/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/selfimgrhexo/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/selfimgrhexo/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/selfimgrhexo/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/selfimgrhexo/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/selfimgrhexo/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
